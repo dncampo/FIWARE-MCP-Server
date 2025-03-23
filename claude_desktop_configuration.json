@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+      "CB-assistant": {
+        "command": "uvx",
+        "args": [
+          "<path_to_your_server>"
+        ],
+        "host": "127.0.0.1",
+        "port": 5001,
+        "timeout": 15000
+      }
+    }
+  }
