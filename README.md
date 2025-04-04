@@ -1,5 +1,8 @@
 # FIWARE MCP Server
 
+![](https://badge.mcpx.dev?type=server 'MCP Server')
+![](https://badge.mcpx.dev?type=dev 'MCP Dev')
+
 This is a first implementation of a FIWARE Model Context Protocol (MCP) Server that provides a bridge between the Context Broker and other services. The server implements basic operations for interacting with a FIWARE Context Broker.
 
 ## Objectives
