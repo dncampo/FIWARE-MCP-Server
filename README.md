@@ -1,5 +1,6 @@
 # FIWARE MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@dncampo/FIWARE-MCP-Server)](https://smithery.ai/server/@dncampo/FIWARE-MCP-Server)
 ![](https://badge.mcpx.dev?type=server 'MCP Server')
 ![](https://badge.mcpx.dev?type=dev 'MCP Dev')
 
@@ -26,6 +27,15 @@ This is a first implementation of a FIWARE Model Context Protocol (MCP) Server t
 
 ## Installation
 
+### Installing via Smithery
+
+To install FIWARE MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@dncampo/FIWARE-MCP-Server):
+
+```bash
+npx -y @smithery/cli install @dncampo/FIWARE-MCP-Server --client claude
+```
+
+### Manual Installation
 1. Clone this repository:
 ```bash
 git clone <repository-url>
