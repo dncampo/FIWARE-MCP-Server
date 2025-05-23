@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/dncampo-fiware-mcp-server-badge.png)](https://mseep.ai/app/dncampo-fiware-mcp-server)
+
 # FIWARE MCP Server
 
 ![](https://badge.mcpx.dev?type=server 'MCP Server')
