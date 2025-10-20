@@ -6,6 +6,7 @@ import requests
 import json
 import logging
 import argparse
+from pysmartdatamodels import pysmartdatamodels as sdm
 
 # --- Logging to STDERR only ---
 logger = logging.getLogger("cb-assistant")
@@ -214,6 +215,29 @@ def publish_to_CB(address: str="localhost", port: int=1026, entity_data: dict=No
 
     logger.info("Entity data sent: %s", json.dumps(entity_data, indent=2))
     return json.dumps({"status": "completed"})
+
+# This tool creates or updates entities in the Context Broker
+@mcp.tool()
+def fetch_SDM_data(datamodel: str = "Animal", subject: str = "dataModel.Agrifood") -> str:
+    """Fetch data from the SDM.
+    From a URL of a SDM or a SDM ID, fetch the data of the SDM using the pysmartdatamodels library.
+    The response is a JSON object with the data of the SDM, where you can get the data of the SDM in a human readable format
+    useful for LLMs to understand the data of the SDM.
+    You need to provide the datamodel and the subject of the SDM.
+    For example, to fetch data from the SDM of the entity of type "WeatherForcast", you should provide the following:
+    'datamodel: WeatherForcast, subject: datamode.Weather'
+    In "JSON_schema_data" you will get the JSON schema of the SDM.
+    """
+    try:
+        response = sdm.list_datamodel_metadata(datamodel, subject)
+        logger.info("retrieved SDM metadata: %s", json.dumps(response, indent=2))
+        response['JSON_schema_data'] = json.dumps(
+            requests.get(response['jsonSchemaUrl']).json()
+        )
+        logger.info("JSON schema data: %s", response['JSON_schema_data'])
+        return json.dumps(response)
+    except Exception as e:
+        return json.dumps({"error": str(e)})
 
 
 if __name__ == "__main__":
