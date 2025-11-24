@@ -6,7 +6,10 @@ import requests
 import json
 import logging
 import argparse
+from typing import Optional
 from pysmartdatamodels import pysmartdatamodels as sdm
+
+from helpers import process_headers
 
 # --- Logging to STDERR only ---
 logger = logging.getLogger("cb-assistant")
@@ -42,15 +45,24 @@ mcp = FastMCP(
 )
 
 # This tool gets the Context Broker version
-@mcp.tool()
-def CB_version(address: str="localhost", port: int=1026) -> str:
+@mcp.tool(exclude_args=["sessionId","toolCallId","action","chatInput"])
+def CB_version(address: str="https://up-broker.fox.dea.k8s.fiware.org", port: int=443,
+    sessionId: Optional[str] = None,
+    action: Optional[str] = None,
+    chatInput: Optional[str] = None,
+    toolCallId: Optional[str] = None
+               ) -> str:
     """Return the version of the CB."""
     try:
-        url = f"http://{address}:{port}/version"
+        url = f"{address}:{port}/version"
+        logger.info("Executing GET request to: %s", url)
         response = requests.get(url)
         response.raise_for_status()  # Raise an exception for bad status codes
-        return json.dumps(response.json())
+        result = response.json()
+        logger.info("Request successful. Status: %s, Response: %s", response.status_code, json.dumps(result))
+        return json.dumps(result)
     except requests.exceptions.RequestException as e:
+        logger.error("Request failed. Error: %s", str(e))
         return json.dumps({"error": str(e)})
 
 
@@ -59,31 +71,40 @@ def CB_version(address: str="localhost", port: int=1026) -> str:
 # - Like adding a personalized context to the request
 # - The default headers are "Accept: application/json" and "Content-Type: application/json"
 # - This tool returns a JSON object with the entities and a count of the total number of entities in NGSILD-Results-Count
-@mcp.tool()
-def get_all_entities(address: str="localhost", port: int=1026,  limit=1000, extra_headers: str="") -> str:
+@mcp.tool(exclude_args=["sessionId","toolCallId","action","chatInput"])
+def get_all_entities(address: str="https://up-broker.fox.dea.k8s.fiware.org", port: int=443,  limit=1000, extra_headers: str="",
+    sessionId: Optional[str] = None,
+    action: Optional[str] = None,
+    chatInput: Optional[str] = None,
+    toolCallId: Optional[str] = None) -> str:
     """Get all entities from the Context Broker."""
     try:
-        url = f"http://{address}:{port}/ngsi-ld/v1/entities?limit={limit}"
+        url = f"{address}:{port}/ngsi-ld/v1/entities?limit={limit}"
         params = {
             "local": "true",
             "count": "true"
         }
         headers = {
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Link": '<https://raw.githubusercontent.com/jason-fox/csv-to-json/refs/heads/cote-divoire/data-models/demo-context-fr.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"',
+            "Demo": "Demo"
         }
 
         # Add any extra headers if provided
         if extra_headers:
             try:
-                extra_headers_dict = json.loads(extra_headers)
-                headers.update(extra_headers_dict)
-            except json.JSONDecodeError:
-                return json.dumps({"error": "Invalid extra_headers format. Must be valid JSON string"})
+                headers = process_headers(headers, extra_headers)
+            except ValueError as exc:
+                return json.dumps({"error": str(exc)})
 
+        logger.info("Executing GET request to: %s with params: %s, headers: %s", url, params, headers)
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
-        return json.dumps(response.json())
+        result = response.json()
+        logger.info("Request successful. Status: %s, Response count: %s", response.status_code, len(result) if isinstance(result, list) else "N/A")
+        return json.dumps(result)
     except requests.exceptions.RequestException as e:
+        logger.error("Request failed. Error: %s", str(e))
         return json.dumps({"error": str(e)})
 
 
@@ -92,28 +113,38 @@ def get_all_entities(address: str="localhost", port: int=1026,  limit=1000, extr
 # - You can add extra headers to the request if needed
 # - Like adding a personalized context to the request
 # - The default headers are "Accept: application/json"
-@mcp.tool()
-def get_entity_types(address: str="localhost", port: int=1026, limit=1000, extra_headers: str="") -> str:
+@mcp.tool(exclude_args=["sessionId","toolCallId","action","chatInput"])
+def get_entity_types(address: str="https://up-broker.fox.dea.k8s.fiware.org", port: int=443, limit=100, extra_headers: str="",
+    sessionId: Optional[str] = None,
+    action: Optional[str] = None,
+    chatInput: Optional[str] = None,
+    toolCallId: Optional[str] = None) -> str:
     """Get entity types from the Context Broker."""
     try:
-        url = f"http://{address}:{port}/ngsi-ld/v1/types?limit={limit}"
+        url = f"{address}:{port}/ngsi-ld/v1/types?limit={limit}"
         headers = {
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Link": '<https://raw.githubusercontent.com/jason-fox/csv-to-json/refs/heads/cote-divoire/data-models/demo-context-fr.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"',
+            "Demo": "Demo"
         }
 
         # Add any extra headers if provided
         if extra_headers:
             try:
-                extra_headers_dict = json.loads(extra_headers)
-                headers.update(extra_headers_dict)
-            except json.JSONDecodeError:
-                return json.dumps({"error": "Invalid extra_headers format. Must be valid JSON string"})
+                headers = process_headers(headers, extra_headers)
+            except ValueError as exc:
+                return json.dumps({"error": str(exc)})
 
+        logger.info("Executing GET request to: %s with headers: %s", url, headers)
         response = requests.get(url, headers=headers)
         response.raise_for_status()
-        return json.dumps(response.json())
+        result = response.json()
+        logger.info("Request successful. Status: %s, Response: %s", response.status_code, json.dumps(result))
+        return json.dumps(result)
     except requests.exceptions.RequestException as e:
+        logger.error("Request failed. Error: %s", str(e))
         return json.dumps({"error": str(e)})
+
 
 
 # This tool allows to execute any query to the Context Broker
@@ -121,22 +152,26 @@ def get_entity_types(address: str="localhost", port: int=1026, limit=1000, extra
 # - For example, to get the entity of type "Building" whose name is "Building 1" you should provide the following URL:
 # 'GET http://localhost:1026/ngsi-ld/v1/entities/Building/name/Building%201' or 'GET /ngsi-ld/v1/entities/Building/name/Building%201'
 # you need to provide the proper parameter for the GET request
-@mcp.tool()
-def execute_query(params: str) -> str:
+@mcp.tool(exclude_args=["sessionId","toolCallId","action","chatInput"])
+def execute_query(params: str, address: str="https://up-broker.fox.dea.k8s.fiware.org", port: int=443, limit=10, extra_headers: str="",
+    sessionId: Optional[str] = None,
+    action: Optional[str] = None,
+    chatInput: Optional[str] = None,
+    toolCallId: Optional[str] = None) -> str:
         """
         This tools just passes the query to the Context Broker and returns the response
         You should provide the full or partial VALID query to the Context Broker
         you need to provide the proper parameter for the GET request.
         For example, to get the entity of type "Building" whose name is "Building 1" you should provide the following URL:
-        'GET http://localhost:1026/ngsi-ld/v1/entities/Building/name/Building%201' or 'GET /ngsi-ld/v1/entities/Building/name/Building%201'
+        'GET https://up-broker.fox.dea.k8s.fiware.org:443/ngsi-ld/v1/entities/Building/name/Building%201' or 'GET /ngsi-ld/v1/entities/Building/name/Building%201'
         """
-        base_url = "http://localhost:1026"
+        base_url = f"{address}:{port}"
 
         # Normalize params without printing anything to stdout
         if isinstance(params, str) and params.strip().startswith("GET"):
             params = params.strip()[3:]
-        if isinstance(params, str) and params.strip().startswith("http://localhost:1026/"):
-            params = params.strip()[len("http://localhost:1026/"):]
+        if isinstance(params, str) and params.strip().startswith("https://up-broker.fox.dea.k8s.fiware.org:443/"):
+            params = params.strip()[len("https://up-broker.fox.dea.k8s.fiware.org:443/"):]
         params = params.lstrip("/").replace(" ", "")
 
         # Check if params start with "/" (possibly with leading spaces), and strip spaces and the first slash
@@ -149,11 +184,19 @@ def execute_query(params: str) -> str:
 
         headers = {
             "Accept": "application/ld+json, application/json;q=0.9, */*;q=0.1",
-            "Link": '<http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"',
+            "Link": '<https://raw.githubusercontent.com/jason-fox/csv-to-json/refs/heads/cote-divoire/data-models/demo-context-fr.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"',
+            "Demo": "Demo"
         }
 
+        # Add any extra headers if provided
+        if extra_headers:
+            try:
+                headers = process_headers(headers, extra_headers)
+            except ValueError as exc:
+                return json.dumps({"error": str(exc)})
+
         try:
-            logger.info("Requesting: %s", full_url)
+            logger.info("Executing GET request to: %s with headers: %s", full_url, headers)
             resp = requests.get(full_url, headers=headers)
 
             # Try JSON; fall back to text
@@ -171,29 +214,37 @@ def execute_query(params: str) -> str:
 
             # Raise for non-2xx after capturing body, but still return JSON error
             resp.raise_for_status()
+            logger.info("Request successful. Status: %s, Response body: %s", resp.status_code, json.dumps(body)[:500] if isinstance(body, dict) else str(body)[:500])
             return json.dumps(result)
 
         except requests.exceptions.RequestException as e:
+            logger.error("Request failed. Error: %s, URL: %s", str(e), full_url)
             # Still return valid JSON
             return json.dumps({"error": str(e), "url": full_url})
 
 
-
 # This tool creates or updates entities in the Context Broker
-@mcp.tool()
-def publish_to_CB(address: str="localhost", port: int=1026, entity_data: dict=None) -> str:  # type: ignore
+@mcp.tool(exclude_args=["sessionId","toolCallId","action","chatInput"])
+def publish_to_CB(address: str="https://up-broker.fox.dea.k8s.fiware.org", port: int=443, entity_data: dict=None,
+    sessionId: Optional[str] = None,
+    action: Optional[str] = None,
+    chatInput: Optional[str] = None,
+    toolCallId: Optional[str] = None) -> str:  # type: ignore
     """Publish an entity to the CB."""
-    broker_url = f"http://{address}:{port}/ngsi-ld/v1/entities"
+    broker_url = f"{address}:{port}/ngsi-ld/v1/entities"
     headers = {
-        "Content-Type": "application/ld+json"
+        "Content-Type": "application/ld+json",
+        "Link": '<https://raw.githubusercontent.com/jason-fox/csv-to-json/refs/heads/cote-divoire/data-models/demo-context-fr.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"',
+        "Demo": "Demo"
     }
     try:
+        logger.info("Executing POST request to: %s with entity_data: %s", broker_url, json.dumps(entity_data, indent=2))
         response = requests.post(broker_url, json=entity_data, headers=headers)
 
         if response.status_code == 201:
-            logger.info("Success! Entity created. Status code: %s", response.status_code)
+            logger.info("Request successful. Entity created. Status code: %s, Response: %s", response.status_code, response.text[:500])
         elif response.status_code == 409:
-            logger.info("Entity already exists. Status code: %s", response.status_code)
+            logger.info("Entity already exists. Status code: %s, Response: %s", response.status_code, response.text[:500])
 
             # Update the entity if it already exists
             entity_id = entity_data["id"]
@@ -205,20 +256,25 @@ def publish_to_CB(address: str="localhost", port: int=1026, entity_data: dict=No
             update_data.pop("type", None)
             update_data.pop("@context", None)
 
+            logger.info("Executing PATCH request to: %s with update_data: %s", update_url, json.dumps(update_data, indent=2))
             update_response = requests.patch(update_url, json=update_data, headers=headers)
-            logger.info("Update attempt result: %s", update_response.status_code)
+            logger.info("Update request successful. Status: %s, Response: %s", update_response.status_code, update_response.text[:500])
         else:
-            logger.error("Error creating entity. Status code: %s", response.status_code)
-            logger.error("Response content: %s", response.text)
+            logger.error("Request failed. Error creating entity. Status code: %s, Response content: %s", response.status_code, response.text)
     except Exception as e:
-        logger.exception("An error occurred: %s", e)
+        logger.exception("Request failed. An error occurred: %s", e)
 
     logger.info("Entity data sent: %s", json.dumps(entity_data, indent=2))
     return json.dumps({"status": "completed"})
 
+
 # This tool creates or updates entities in the Context Broker
-@mcp.tool()
-def fetch_SDM_data(datamodel: str = "Animal", subject: str = "dataModel.Agrifood") -> str:
+@mcp.tool(exclude_args=["sessionId","toolCallId","action","chatInput"])
+def fetch_SDM_data(datamodel: str = "Animal", subject: str = "dataModel.Agrifood",
+    sessionId: Optional[str] = None,
+    action: Optional[str] = None,
+    chatInput: Optional[str] = None,
+    toolCallId: Optional[str] = None) -> str:
     """Fetch data from the SDM.
     From a URL of a SDM or a SDM ID, fetch the data of the SDM using the pysmartdatamodels library.
     The response is a JSON object with the data of the SDM, where you can get the data of the SDM in a human readable format
@@ -231,12 +287,20 @@ def fetch_SDM_data(datamodel: str = "Animal", subject: str = "dataModel.Agrifood
     try:
         response = sdm.list_datamodel_metadata(datamodel, subject)
         logger.info("retrieved SDM metadata: %s", json.dumps(response, indent=2))
-        response['JSON_schema_data'] = json.dumps(
-            requests.get(response['jsonSchemaUrl']).json()
-        )
+        schema_url = response['jsonSchemaUrl']
+        logger.info("Executing GET request to: %s", schema_url)
+        schema_response = requests.get(schema_url)
+        schema_response.raise_for_status()
+        schema_data = schema_response.json()
+        logger.info("Request successful. Status: %s, Schema data retrieved", schema_response.status_code)
+        response['JSON_schema_data'] = json.dumps(schema_data)
         logger.info("JSON schema data: %s", response['JSON_schema_data'])
         return json.dumps(response)
+    except requests.exceptions.RequestException as e:
+        logger.error("Request failed. Error fetching schema: %s", str(e))
+        return json.dumps({"error": str(e)})
     except Exception as e:
+        logger.error("Error: %s", str(e))
         return json.dumps({"error": str(e)})
 
 
@@ -245,7 +309,7 @@ if __name__ == "__main__":
         if _IS_HTTP:
             logger.info("Starting MCP server 'CB-assistant' on %s:%s (HTTP)", _HOST, _PORT)
             mcp.run(
-                transport="http",
+                transport="sse",
                 host=_HOST,
                 port=_PORT,
             )
