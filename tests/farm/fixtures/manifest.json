@@ -1,0 +1,141 @@
+{
+  "source_commit": "05c6fdd118b731a5c362b0892c9efb00968dc7a4",
+  "source_blobs": {
+    "README.md": "69a02605f3d4f1c17d1f02696dbde14f14d5eb83",
+    "src/README.md": "930e88125d40c7007ddc312eb77bad275fa4d888",
+    "src/import-data-static": "e5a965f0c3327c5303de6e52ae3a50dd01140d23",
+    "src/import-data-dynamic": "97c6782d3b0fe316ceba45099281d3cbf9aa1d7c",
+    "src/provision-devices": "eb00810972c8273f31201b55d0664d05ec0d9b72",
+    "src/link-devices": "2de7b84f32b3bb0b3e014a7d433ffdacc0a412fb",
+    "src/services": "22053c301f47108b8ee365f44c63d7bdc497e1e8",
+    "src/data-models/user-context.jsonld": "9e812ae5ea0cf8d6a085aee85c46e2adf07f9a5d",
+    "src/data-models/alternate-context.jsonld": "21c34dc08f8ead91a0ff1fee0c484996dcadd059",
+    "src/data-models/ngsi-context.jsonld": "952032a32813dd35ad2a966376d835f0c5725865",
+    "src/docker-compose/common.yml": "43db4a90c37da993a59ebf965070b29c77405285",
+    "src/docker-compose/orion-ld.yml": "fcfa85de72534422220fa4afc801b69524bee36d",
+    "src/docker-compose/scorpio.yml": "a0c5a21780f2d74f03fe28bc712cbaaf5557d04d",
+    "src/docker-compose/stellio.yml": "6ff8544c8eb71875d33b938e368f0c7a5a709edd",
+    "src/conf/mime.types": "1d29c4649634aa8d701e977b1780e7a56a2d234e"
+  },
+  "seed": 1729,
+  "cow_count": 40,
+  "generator_image": "python:3.12.8-slim",
+  "generator_image_identity": "sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0 arm64 [\"python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0\"]",
+  "generator_bash": "GNU bash, version 5.2.15(1)-release (x86_64-pc-linux-gnu)\nCopyright (C) 2022 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n\nThis is free software; you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+  "payload_sha256": "801836e2928521c2d2f0de99956c72e449f7620fed5515d796cecd78e39350a1",
+  "expected_counts": {
+    "Animal": 47,
+    "AgriParcel": 6,
+    "Building": 4,
+    "Person": 4
+  },
+  "source_anomalies": [
+    {
+      "batch": 2,
+      "id": "urn:ngsi-ld:Animal:cow102",
+      "attribute": "locatedAt",
+      "source_value": {
+        "object": "urn:ngsi-ld:AgriParcel:005"
+      }
+    },
+    {
+      "batch": 2,
+      "id": "urn:ngsi-ld:Animal:cow102",
+      "attribute": "ownedBy",
+      "source_value": {
+        "object": "urn:ngsi-ld:Person:001"
+      }
+    },
+    {
+      "batch": 2,
+      "id": "urn:ngsi-ld:Animal:cow103",
+      "attribute": "locatedAt",
+      "source_value": {
+        "object": "urn:ngsi-ld:Building:barn002"
+      }
+    },
+    {
+      "batch": 2,
+      "id": "urn:ngsi-ld:Animal:cow103",
+      "attribute": "ownedBy",
+      "source_value": {
+        "object": "urn:ngsi-ld:Person:001"
+      }
+    },
+    {
+      "batch": 2,
+      "id": "urn:ngsi-ld:Animal:cow006",
+      "attribute": "locatedAt",
+      "source_value": {
+        "object": "urn:ngsi-ld:Building:barn002"
+      }
+    },
+    {
+      "batch": 2,
+      "id": "urn:ngsi-ld:Animal:cow006",
+      "attribute": "ownedBy",
+      "source_value": {
+        "object": "urn:ngsi-ld:Person:001"
+      }
+    }
+  ],
+  "generated_anomalies": [],
+  "missing_targets": [
+    {
+      "source": "urn:ngsi-ld:Animal:cow006",
+      "attribute": "ownedBy",
+      "target": "urn:ngsi-ld:Person:001"
+    },
+    {
+      "source": "urn:ngsi-ld:AgriParcel:001",
+      "attribute": "cropType",
+      "target": "urn:ngsi-ld:AgriCrop:BuckWheat"
+    },
+    {
+      "source": "urn:ngsi-ld:AgriParcel:002",
+      "attribute": "cropType",
+      "target": "urn:ngsi-ld:AgriCrop:Corn"
+    },
+    {
+      "source": "urn:ngsi-ld:AgriParcel:003",
+      "attribute": "cropType",
+      "target": "urn:ngsi-ld:AgriCrop:Grass"
+    },
+    {
+      "source": "urn:ngsi-ld:AgriParcel:004",
+      "attribute": "cropType",
+      "target": "urn:ngsi-ld:AgriCrop:Grass"
+    },
+    {
+      "source": "urn:ngsi-ld:AgriParcel:005",
+      "attribute": "cropType",
+      "target": "urn:ngsi-ld:AgriCrop:Grass"
+    },
+    {
+      "source": "urn:ngsi-ld:AgriParcel:006",
+      "attribute": "cropType",
+      "target": "urn:ngsi-ld:AgriCrop:Grass"
+    },
+    {
+      "source": "urn:ngsi-ld:Animal:cow102",
+      "attribute": "ownedBy",
+      "target": "urn:ngsi-ld:Person:001"
+    },
+    {
+      "source": "urn:ngsi-ld:Animal:cow103",
+      "attribute": "ownedBy",
+      "target": "urn:ngsi-ld:Person:001"
+    }
+  ],
+  "registration": "captured, excluded because no forwarder is deployed",
+  "fixture_note": "Frozen exact payloads from the verified Phase 3 Smart Farming run; not regenerated at test time. Recorded generator image identity describes host image inspection; generator reported x86_64 Bash. Payload bytes, not an image tag or seed alone, define this regression fixture.",
+  "files_sha256": {
+    "fixtures/payloads.json": "801836e2928521c2d2f0de99956c72e449f7620fed5515d796cecd78e39350a1",
+    "contexts/alternate-context.jsonld": "f27de19a72f61c4ec8b04c0e51656454b52f2aba12a39136cde9790f717ebd23",
+    "contexts/ngsi-context.jsonld": "388f47aa6ecd7d5e70809d875637a1757222b2d9222f4f5d71591741583bbed7",
+    "contexts/user-context.jsonld": "0cbb9f6c6176a82e38aed1e23caa7799e3319b6c55225f213c65e611a9415ef4",
+    "source/LICENSE": "40a93d020d9b4634f380a7dda0a3a5c4a82a4970dea5d9834d46fb4f5515cf7d",
+    "source/import-data-dynamic": "9496e473f4aebd0cd782e41baaaa52db28dd4e35da467c1914cff71d353c4fe8",
+    "source/import-data-static": "72a3955c49330099d9831c2b5278689b62a687d2c82e695724cc8f3fc3a40671"
+  }
+}

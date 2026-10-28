@@ -34,6 +34,25 @@ The endpoint is `http://127.0.0.1:5001/mcp`. HTTP defaults to loopback. The serv
 has no inbound authentication layer: keep it local or place an authenticated
 reverse proxy in front of it. SDK Host/Origin protections remain enabled.
 
+## Smart Farming integration test
+
+Use an existing NGSI-LD broker compatible with the original farming dataset
+(Orion-LD 1.12.0 requires `-mongocOnly`; the root demo stack does not enable it):
+
+```sh
+cd tests/farm
+./test_farm.sh                         # default http://localhost:1026; asks first
+./test_farm.sh --broker-url http://localhost:9090 -y
+./test_farm.sh --broker-url http://localhost:9090 --verify-only --mcp
+```
+
+The pinned fixture reproduces **47 Animals and 61 entities total**. Matching
+repeated runs make no writes; `-y` does not approve collision overwrites. No Docker
+resources or unrelated entities are deleted. Direct checks use Python's standard
+library; optional `--mcp` uses the installed project requirements. See the
+[farm guide](tests/farm/README.md) for context hosting, network topology, environment
+variables, provenance and regression tests.
+
 ## Configuration
 
 Configuration is read once from process environment at startup. The server does
