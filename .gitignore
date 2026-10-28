@@ -172,3 +172,37 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Local environments and generated results
+.venv/
+.env.*
+!.template.env
+phase2-*.txt
+phase2-*.json
+phase3-*.txt
+phase3-*.json
+phase3-*.jsonl
+docs/phase3-evidence/
+docs/PHASE3_EVALUATION.md
+*.local.*
+.DS_Store
+
+# Machine specific MCP and assistant configuration
+.mcp.json
+.codex/
+.claude/
+claude_desktop_configuration.json
+
+# Additional local test output
+test-results/
+test-results*.txt
+test-results*.json
+test-results*.xml
+*.junit.xml
+
+# Phase 3.1 local evidence and workspace backups
+phase31-*.txt
+phase31-*.json
+phase31-*.jsonl
+.workspace-backups/

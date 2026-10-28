@@ -1,0 +1,31 @@
+name: fiware-mcp-demo
+services:
+  mongo:
+    image: mongo:4.4.29
+    platform: linux/amd64
+    command: ["--bind_ip_all"]
+    healthcheck:
+      test: ["CMD", "mongo", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    volumes:
+      - mongo-data:/data/db
+  context:
+    image: python:3.12.8-slim
+    command: ["python", "-m", "http.server", "3000", "--directory", "/contexts"]
+    volumes:
+      - ./examples:/contexts:ro
+  orion:
+    image: fiware/orion-ld:1.12.0
+    platform: linux/amd64
+    command: ["-dbhost", "mongo", "-logLevel", "WARN"]
+    depends_on:
+      mongo:
+        condition: service_healthy
+      context:
+        condition: service_started
+    ports:
+      - "127.0.0.1:1026:1026"
+volumes:
+  mongo-data:

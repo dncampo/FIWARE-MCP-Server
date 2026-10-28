@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "Building": "https://example.org/Building",
+    "Room": "https://example.org/Room",
+    "Sensor": "https://example.org/Sensor",
+    "name": "https://example.org/name",
+    "temperature": "https://example.org/temperature",
+    "floor": "https://example.org/floor",
+    "locatedIn": "https://example.org/locatedIn"
+  }
+}
