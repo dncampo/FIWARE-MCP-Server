@@ -200,3 +200,9 @@ test-results*.txt
 test-results*.json
 test-results*.xml
 *.junit.xml
+
+# Phase 3.1 local evidence and workspace backups
+phase31-*.txt
+phase31-*.json
+phase31-*.jsonl
+.workspace-backups/

@@ -1,6 +1,6 @@
-# Baseline verification
+# Verification
 
-This branch preserves the modernized implementation before Phase 3.1 bug fixing.
+This branch includes the Phase 3.1 query context correction and regression tests.
 
 ## Selected versions
 
@@ -47,17 +47,44 @@ were copied without behavioral edits.
 
 ## Client evaluation and known limits
 
-The maintainer reports successful Claude Code connectivity. A later Claude Code
-test reported a potential q filtering defect. It remains unresolved in this
-baseline. See [known issues](KNOWN_ISSUES.md). Passing the recorded test suite does
-not establish correctness for every q expression.
+The maintainer reports successful Claude Code connectivity. Phase 3.1 traced the
+reported filtering issue to a missing deployment context in the local MCP
+registration. Direct HTTP and MCP reproduce the empty contextless response and
+recover the expected values with the appropriate request context. See the
+[query filtering diagnosis](QUERY_FILTERING.md). Passing the recorded test suite
+does not establish correctness for every q expression.
 
 A separate native Codex evaluation was blocked before MCP startup by a client
 initialization permission error. No Codex natural language evaluation was marked
 as passed. Local Codex configuration and generated evaluation output are omitted.
 
-Other brokers, concurrency, remote authentication, a fresh dependency installation
-and immutable image digests were not verified in this phase.
+Other brokers, concurrency, remote authentication and immutable image digests
+were not verified in Phase 2.
+
+## Phase 3.1 coverage
+
+The source implementation's recorded complete run on 28 October 2026 reported
+77 passed in 10.68 seconds, with no failures or skips. The suite now contains
+twenty integration cases and 57 other checks. Eleven new live cases compare
+direct HTTP and MCP filtering, exact stored values, projection, configured and
+per-call contexts, and missing-context recovery. Six unit regressions cover
+context headers, encoding, contextless requests and the query tool description.
+
+Fresh verification in this checkout on 28 October 2026 used a newly installed
+Python 3.14.6 environment with requirements-dev.txt and the existing broker:
+
+```sh
+FIWARE_INTEGRATION=1 .venv/bin/python -m pytest -v --tb=short
+```
+
+Result: **77 passed in 11.52 seconds; no failures or skips**. The first restricted
+attempt could not access localhost or bind TCP ports; the complete successful
+run used approved access. Its output is retained locally in the ignored
+phase31-test-results.txt file.
+
+The production change clarifies the query tool description; executable query
+logic and interfaces are unchanged. Machine specific client registrations remain
+outside Git. See [known issues](KNOWN_ISSUES.md) for configuration guidance.
 
 ## Reproduce
 

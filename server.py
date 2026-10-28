@@ -79,9 +79,19 @@ def build_server(config: Config | None = None, *, transport=None) -> MCPServer:
                        coordinates: list[Any] | None = None, limit: int = 20, offset: int = 0,
                        context_url: str | None = None, representation: Literal['normalized', 'keyValues'] = 'normalized') -> Result:
         """Query one bounded NGSI-LD entity page. type is a type term/IRI (comma-separated
-        types allowed); attrs and id are lists of terms/IRIs and absolute entity URIs.
-        Use standard NGSI-LD q verbatim: 'temperature>20' or 'name=="Room 1"'; combine
-        with ';' (AND) or '|' (OR). idPattern is a broker regex. No query is repaired.
+        types allowed). attrs must be a JSON array of attribute terms/IRIs, e.g.
+        ['temperature'], not a comma-separated string. id is an array of absolute
+        entity URIs. q is standard NGSI-LD text: 'temperature>20' or 'name=="Room 1"';
+        combine with ';' (AND) or '|' (OR). q attribute paths use compact terms,
+        resolved by the request's JSON-LD context, not bare full IRIs. Property
+        predicates target their values directly; do not append .value merely
+        because the entity representation contains a value member.
+        Supply an operator-configured context_url or configure NGSI_LD_CONTEXT_URL;
+        the server sends it as a Link header. Without that context, custom terms
+        may resolve differently and match nothing. Full IRIs are valid for type
+        and attrs. idPattern is a broker regex. No query is repaired or expanded
+        by this server. Empty data with ok=true means no matches under the supplied
+        type/context/filter; verify those before concluding no entities exist.
         Geo filters require georel, geometry and coordinates together, e.g. georel=
         'near;maxDistance==1000', geometry='Point', coordinates=[-3.7,40.4]. They use
         the default location GeoProperty. limit: 1..100; offset: nonnegative. Returns

@@ -4,10 +4,6 @@ A small Python MCP server for discovering, reading, querying, creating and updat
 NGSI-LD entities on one configured Context Broker. It contains no agent, model
 registry or application-specific production logic.
 
-This branch preserves the implementation before Phase 3.1. A later Claude Code
-session reported a potential q filtering defect. It remains unresolved in this
-baseline. See [known issues](docs/KNOWN_ISSUES.md).
-
 The server uses the official Python MCP SDK **2.3.0**, pinned in requirements.txt,
 and targets MCP **2026-07-28**. The same server supports legacy clients; STDIO
 2025-11-25 negotiation is covered by tests. Python **3.11 or newer** is required
@@ -65,7 +61,9 @@ including nested contexts and `@import`, must be explicitly allowed. The server
 never downloads contexts itself; the broker may fetch them. Only configure trusted
 context documents and use broker network restrictions to control their transitive
 imports. No universal application context is assumed. With no context, use fully
-qualified terms or the broker's core context behavior.
+qualified terms for type/attrs or the broker's core context behavior. In q,
+use compact attribute paths with the context that defines them; a bare full IRI
+is not a standard q attribute path.
 
 Writes with inline `@context` use `application/ld+json`; others use
 `application/json` and an optional context Link. Responses request
@@ -75,7 +73,8 @@ Writes with inline `@context` use `application/ld+json`; others use
 
 Configure Claude Desktop to launch the installed environment Python executable
 with the absolute path to server.py as its argument. Set broker configuration
-under `env`; add `NGSI_LD_ENABLE_WRITES=true` only when desired. Keep this local
+under `env`, including the trusted deployment context in `NGSI_LD_CONTEXT_URL`;
+add `NGSI_LD_ENABLE_WRITES=true` only when desired. Keep this machine specific
 configuration outside Git. Claude Desktop is optional.
 
 An independent Python client can discover and invoke tools:
@@ -140,6 +139,26 @@ Query examples (MCP arguments):
 {"type":"Building","georel":"near;maxDistance==1000","geometry":"Point","coordinates":[-3.7,40.4]}
 ```
 
+`attrs` is a JSON array such as `["temperature"]`, not a comma separated MCP
+argument. Fully qualified IRIs can be used in `type` and `attrs`. The attribute
+paths inside `q` use compact context terms, such as `temperature`; do not replace
+them with a bare attribute URL or append `.value`. Set `NGSI_LD_CONTEXT_URL` in
+the MCP server environment, or pass an operator allowlisted `context_url` on the
+tool call. The context used to create an entity does not automatically become
+the context of every later query.
+
+For the Compose demonstration, configure
+`NGSI_LD_CONTEXT_URL=http://context:3000/context.jsonld` in the client environment
+and restart its MCP connection. The broker resolves that private context URL.
+For other applications, configure the appropriate trusted context instead.
+If one deployment uses several contexts, configure their trusted URLs in
+`NGSI_LD_CONTEXT_URLS`, provide those choices to the LLM in its deployment
+instructions, and use `context_url` on the tool call to select one. The server
+validates the choice and sends the Link header; it does not guess a vocabulary,
+fetch a schema or rewrite the query.
+An empty `ok=true` query is a valid result under the supplied type, context and
+filter; check these before treating it as evidence that no matching data exists.
+
 `q` uses NGSI-LD syntax directly; strings, spaces and punctuation are preserved
 and encoded as query parameters. Geo filters require all three parameters and use
 the default `location` GeoProperty. The broker validates full query, regex and
@@ -175,6 +194,9 @@ The demo's default Link context URL is `http://context:3000/context.jsonld`. Thi
 name is resolved **by the broker inside Compose**, not by the host. For other
 brokers, configure a context URL they can reach and adapt the demonstration client.
 The production server contains no example entity types.
+The local Claude Code registration also needs the deployment context in its
+server environment. An empty client `env` does not supply the demonstration
+context. Restart the MCP connection after changing its environment.
 
 Integration tests exercise the whole sequence over STDIO and real Streamable HTTP:
 connectivity, population, types, attributes, entity retrieval, numeric/text/geo
@@ -215,7 +237,15 @@ create/update read-after-write behavior were verified. The complete live suite
 was run by the user in a normal terminal because this Codex session's sandbox
 blocks Docker socket and local TCP access; its saved results were inspected.
 See the [verification report](docs/VERIFICATION.md) for versions, exact commands,
-execution provenance and the known unresolved filtering issue.
+execution provenance and known limitations.
+
+The later filtering investigation confirmed that requests without the deployment
+context can return empty results even for matching stored values. Direct HTTP and
+MCP agree when the correct context is supplied. See
+[query filtering diagnosis](docs/QUERY_FILTERING.md) for the evidence, configuration
+fix and regression commands. The fresh complete suite reports **77 passed**,
+with no failures or skips, including all eleven new filtering regression cases.
+This correction does not change query transport logic.
 
 ## Scope and known limitations
 

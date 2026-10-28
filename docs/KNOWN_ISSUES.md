@@ -2,25 +2,18 @@
 
 ## NGSI LD q filtering
 
-Status: reported, unresolved, intentionally preserved in the refactor baseline.
+Status: diagnosed and corrected in Phase 3.1.
 
-After the Phase 2 integration suite passed, the maintainer reported that a
-subsequent Claude Code session exposed a potential defect in NGSI LD q filtering.
-Claude Code had successfully connected to the MCP server.
+The local MCP registration omitted the deployment context. Direct HTTP and MCP
+both returned empty results for compact custom q terms without that context,
+then returned the expected stored values when the request supplied it.
 
-The exact failing tool arguments, expected entities, returned entities, context
-and broker response were not supplied with the preservation request. The cause
-has not been established. This baseline does not attribute the defect to Orion,
-query encoding, context resolution or LLM reasoning without a reproduction.
+Configure the trusted deployment context with `NGSI_LD_CONTEXT_URL`, or allowlist
+contexts with `NGSI_LD_CONTEXT_URLS` and select one using `context_url`. Restart
+the MCP connection after changing its environment. Use compact attribute paths
+in q; full IRIs in type or attrs do not replace the q request context.
 
-The existing tests cover specific numeric and textual filters. Their passing
-results do not prove correctness for every q expression or client configuration.
-Treat filtering results as requiring verification for affected use cases.
-
-No query handling code, tool definitions or test assertions were changed during
-baseline preservation. Phase 3.1 investigation and bug fixing are deferred.
-
-For the next phase, capture the natural language request, exact MCP arguments,
-JSON LD context, broker version, expected IDs and actual structured response.
-Compare the same expression through MCP and the broker API before selecting a
-fix. This is an investigation plan, not a diagnosis or completed test.
+Phase 3.1 adds eleven live filtering cases and six unit regressions. Query
+transport logic is unchanged. See the [diagnosis](QUERY_FILTERING.md) and
+[verification report](VERIFICATION.md) for evidence and reproduction commands.
+Other brokers and every possible q expression remain outside this validation.

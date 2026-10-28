@@ -237,3 +237,38 @@ def test_entity_type_list_response(types):
     result, _ = invoke('get_types', data={'id': 'urn:types:1', 'type': 'EntityTypeList', 'typeList': types})
     assert result['ok'] and result['data'] == types
     assert result['pagination']['returned'] == len(types)
+
+
+@pytest.mark.parametrize('context', ['http://context:3000/context.jsonld', 'https://deployment.example/contexts/warehouse.jsonld'])
+@pytest.mark.parametrize('context_mode', ['default', 'per_call'])
+def test_query_context_and_encoding(context_mode, context):
+    config = Config(default_context=context) if context_mode == 'default' else Config(context_urls=(context,))
+    args = {'type': 'https://example.org/Sensor', 'q': 'temperature>19', 'attrs': ['https://example.org/temperature']}
+    if context_mode == 'per_call':
+        args['context_url'] = context
+    result, requests = invoke('query_entities', args, data=[], config=config)
+    assert result['ok'] and result['data'] == []
+    request = requests[0]
+    assert request.headers['link'] == f'<{context}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
+    assert request.url.params['q'] == 'temperature>19'
+    assert request.url.params['attrs'] == 'https://example.org/temperature'
+    assert 'q=temperature%3E19' in request.url.query.decode()
+    assert '%253E' not in request.url.query.decode()
+
+
+def test_query_without_configured_context_is_not_silently_rewritten():
+    result, requests = invoke('query_entities', {'type': 'https://example.org/Sensor', 'q': 'temperature>19'}, data=[])
+    assert result['ok'] and result['data'] == []
+    assert 'link' not in requests[0].headers
+    assert requests[0].url.params['q'] == 'temperature>19'
+
+
+def test_query_description_explains_context_and_parameter_types():
+    async def run():
+        async with Client(build_server()) as client:
+            tool = next(tool for tool in (await client.list_tools()).tools if tool.name == 'query_entities')
+            assert 'JSON array' in tool.description
+            assert 'NGSI_LD_CONTEXT_URL' in tool.description
+            assert 'compact terms' in tool.description
+            assert 'Empty data with ok=true' in tool.description
+    asyncio.run(run())
