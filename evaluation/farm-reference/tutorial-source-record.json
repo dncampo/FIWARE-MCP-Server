@@ -1,0 +1,38 @@
+{
+  "reviewed": "2026-10-29",
+  "transcript": {
+    "url": "https://github.com/FIWARE/tutorials.MCP-Server/blob/gh-pages/farm_transcript.html",
+    "blob_sha": "38e904eaa8d497b91d2980ffc9433f60b985bcc2"
+  },
+  "csv": [
+    {
+      "path": "data/cow.csv",
+      "rows": 43,
+      "distinct_ids": 43,
+      "url": "https://github.com/FIWARE/tutorials.MCP-Server/blob/master/data/cow.csv",
+      "blob_sha": "468fdd4a023925931c7494a647fd65f010c2500a"
+    },
+    {
+      "path": "data/pig.csv",
+      "rows": 30,
+      "distinct_ids": 30,
+      "url": "https://github.com/FIWARE/tutorials.MCP-Server/blob/master/data/pig.csv",
+      "blob_sha": "495d5f5fea2e843bf64a417c5e294359d04aa75f"
+    },
+    {
+      "path": "data/cow-history.csv",
+      "rows": 907,
+      "distinct_ids": 40,
+      "url": "https://github.com/FIWARE/tutorials.MCP-Server/blob/master/data/cow-history.csv",
+      "blob_sha": "4f7a4041b6a92d4f5b0a864a45cae8c017850d76"
+    },
+    {
+      "path": "data/cow-history-young.csv",
+      "rows": 32,
+      "distinct_ids": 2,
+      "url": "https://github.com/FIWARE/tutorials.MCP-Server/blob/master/data/cow-history-young.csv",
+      "blob_sha": "a6b47a92fa1f51fba220554967a4f94af7dad7b0"
+    }
+  ],
+  "source_status": "Read from GitHub connector; not executed; master may move."
+}

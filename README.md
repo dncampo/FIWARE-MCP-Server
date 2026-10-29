@@ -53,6 +53,17 @@ library; optional `--mcp` uses the installed project requirements. See the
 [farm guide](tests/farm/README.md) for context hosting, network topology, environment
 variables, provenance and regression tests.
 
+## Native model experiments
+
+The [experiments index](experiments/README.md) contains dated Claude Code and
+Codex evaluations of the same 16 Smart Farming questions, including questions,
+prompts, expected results, native MCP calls, answers, versions and dataset/source
+hashes. See the [question runners](evaluation/farm-reference/README.md) to execute
+your own run and compare reviewed results with the checked-in baselines. Model
+client installation/authentication and a populated broker are prerequisites; the
+MCP server itself requires no model provider. Raw account event streams remain
+local. Gemini and local model integrations are planned separately.
+
 ## Configuration
 
 Configuration is read once from process environment at startup. The server does

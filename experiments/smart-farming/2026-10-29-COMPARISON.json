@@ -1,0 +1,139 @@
+{
+  "compatibility": "MATCH",
+  "question_count": 16,
+  "grading": "Existing reviewed classifications only; no automatic semantic correctness judgment.",
+  "baseline": {
+    "run_id": "20261029T120603975738Z",
+    "client": "claude",
+    "classifications": {
+      "PASS": 12,
+      "PARTIAL": 4
+    },
+    "native_mcp_calls": 88,
+    "question_duration_seconds": 405.05
+  },
+  "candidate": {
+    "run_id": "codex-20261029T151154441881Z",
+    "client": "codex",
+    "classifications": {
+      "PASS": 16
+    },
+    "native_mcp_calls": 128,
+    "question_duration_seconds": 549.33
+  },
+  "questions": [
+    {
+      "id": "F01",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 7,
+      "candidate_calls": 6
+    },
+    {
+      "id": "F02",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 7,
+      "candidate_calls": 16
+    },
+    {
+      "id": "F03",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 3,
+      "candidate_calls": 4
+    },
+    {
+      "id": "F04",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 4,
+      "candidate_calls": 4
+    },
+    {
+      "id": "F05",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 4,
+      "candidate_calls": 5
+    },
+    {
+      "id": "F06",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 3,
+      "candidate_calls": 4
+    },
+    {
+      "id": "F07",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 3,
+      "candidate_calls": 4
+    },
+    {
+      "id": "F08",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 6,
+      "candidate_calls": 4
+    },
+    {
+      "id": "F09",
+      "baseline": "PARTIAL",
+      "candidate": "PASS",
+      "baseline_calls": 6,
+      "candidate_calls": 10
+    },
+    {
+      "id": "F10",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 4,
+      "candidate_calls": 12
+    },
+    {
+      "id": "F11",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 5,
+      "candidate_calls": 5
+    },
+    {
+      "id": "F12",
+      "baseline": "PARTIAL",
+      "candidate": "PASS",
+      "baseline_calls": 15,
+      "candidate_calls": 27
+    },
+    {
+      "id": "F13",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 8,
+      "candidate_calls": 5
+    },
+    {
+      "id": "F14",
+      "baseline": "PASS",
+      "candidate": "PASS",
+      "baseline_calls": 5,
+      "candidate_calls": 11
+    },
+    {
+      "id": "F15",
+      "baseline": "PARTIAL",
+      "candidate": "PASS",
+      "baseline_calls": 4,
+      "candidate_calls": 7
+    },
+    {
+      "id": "F16",
+      "baseline": "PARTIAL",
+      "candidate": "PASS",
+      "baseline_calls": 4,
+      "candidate_calls": 4
+    }
+  ],
+  "limitation": "Single runs, client/model defaults and provenance capture timing can differ; inspect manifests."
+}

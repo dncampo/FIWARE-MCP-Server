@@ -1,0 +1,64 @@
+{
+  "experiment": "smart-farming-native-mcp",
+  "experiment_date_utc": "2026-10-29",
+  "run_id": "codex-20261029T151154441881Z",
+  "client_family": "codex",
+  "client_version": "codex-cli 0.165.0",
+  "model_requested": "gpt-6.1-sol",
+  "model_observed_in_events": null,
+  "model_note": "Codex resolved model revision is not separately identified by these events.",
+  "broker_url": "http://127.0.0.1:1126",
+  "context_url": "http://context/user-context.jsonld",
+  "broker_version_observed": [
+    "Orion-LD 1.12.0"
+  ],
+  "transport": "STDIO",
+  "writes_enabled": false,
+  "evaluation_status": "REVIEWED",
+  "selected_questions": 16,
+  "attempted_questions": 16,
+  "native_mcp_calls": 128,
+  "classifications": {
+    "PASS": 16
+  },
+  "questions_sha256": "1930c8820d6522625c0058838b4151f741cf5654fa60007c3114d9b2e1f0fd79",
+  "provenance": {
+    "captured_at_utc": "2026-10-29T15:11:54.398112+00:00",
+    "platform": {
+      "os": "Darwin",
+      "release": "25.6.0",
+      "architecture": "arm64"
+    },
+    "dependencies": {
+      "python": "3.14.6",
+      "mcp_sdk": "2.3.0",
+      "httpx": "0.28.1",
+      "sdk_latest_protocol": "2026-07-28"
+    },
+    "mcp": {
+      "repository": "https://github.com/dncampo/FIWARE-MCP-Server",
+      "git_commit": "348dbf89f8db516f5fc782342733a7f78a5165f9",
+      "source_sha256": {
+        "server.py": "ccfae664836d9aa276a616facc37bdeae7d502d7abebc76f38ada29000da3b6d",
+        "broker.py": "d2c8a1adfe89d38958e4107e06b75b6c0485712a5bdbf5f2b38d4f33fdd94e15"
+      },
+      "transport": "STDIO",
+      "protocol_note": "SDK supported revision, not separately captured wire negotiation."
+    },
+    "dataset": {
+      "repository": "https://github.com/dncampo/fgs2025-talking-with-smart-solution",
+      "source_revision": "05c6fdd118b731a5c362b0892c9efb00968dc7a4",
+      "reference_entity_counts": {
+        "Animal": 47,
+        "AgriParcel": 6,
+        "Building": 4,
+        "Person": 4
+      },
+      "payload_sha256": "801836e2928521c2d2f0de99956c72e449f7620fed5515d796cecd78e39350a1",
+      "context_sha256": "0cbb9f6c6176a82e38aed1e23caa7799e3319b6c55225f213c65e611a9415ef4"
+    },
+    "questions_sha256": "1930c8820d6522625c0058838b4151f741cf5654fa60007c3114d9b2e1f0fd79",
+    "capture_note": "Captured before this native Codex run."
+  },
+  "evidence_note": "Curated native MCP calls, returned data and answers. Raw client events and stderr remain local."
+}
