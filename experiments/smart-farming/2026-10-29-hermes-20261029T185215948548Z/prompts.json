@@ -1,0 +1,82 @@
+[
+  {
+    "id": "F01",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF01: Explore the farm and report the available entity types and the count of each type.\n",
+    "sha256": "a38904cc54a468a3de52d74105ea20f5b585d3b011181446deb7972b92a1eedc"
+  },
+  {
+    "id": "F02",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF02: Which attributes are observed on Animals, and which represent relationships or geographic locations?\n",
+    "sha256": "c31dc939280d6d8be31398efd59700c425e04fd741cc227b9b5552dfc0fd5e43"
+  },
+  {
+    "id": "F03",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF03: Which Animals have a heart rate greater than 56?\n",
+    "sha256": "7710d741c55b7c9532bfaf533ccd649d6896676c639169adf2af8a7be5178caf"
+  },
+  {
+    "id": "F04",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF04: Which Animals have a weight greater than 500, and what units are recorded?\n",
+    "sha256": "e0dd5e270eb37e08cdfe73bbdaced978e77d28452cc35f8aaea718debacd03ea"
+  },
+  {
+    "id": "F05",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF05: List all pigs on the farm.\n",
+    "sha256": "4ccb038252bce2948b32f29ddf1a0074100ef5dc186a039a661082bf0f7daf8e"
+  },
+  {
+    "id": "F06",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF06: How many dairy cattle are there?\n",
+    "sha256": "99c3cbaf2213884c95d463f5291a88ded975f00eeeff99e7a31140fe9ff3701c"
+  },
+  {
+    "id": "F07",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF07: Which parcels have a temperature greater than 10, and what values are recorded?\n",
+    "sha256": "1a0542cf0330ef70e72e1031fde135b81c819fc4dcd476353efb86826898da40"
+  },
+  {
+    "id": "F08",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF08: Are there any Animals with a heart rate greater than 1000?\n",
+    "sha256": "f6a61bbfb2bc81aa2fc4e68d1f0d3266898d8d80a33c8647b43590f12405cd62"
+  },
+  {
+    "id": "F09",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF09: Where is Beany located, and who is the recorded owner? Retrieve the related entities.\n",
+    "sha256": "ae5eacacbe0efdbdcc21c8d4cdddb38bd8af6c6de91426091d2c6a96d269d60e"
+  },
+  {
+    "id": "F10",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF10: Identify the parents and recorded locations of Bumble, Blossom and Buttercup.\n",
+    "sha256": "d80470b01af88fd45f547ac9e93d212a22ce1891ca6e7a28bf615913fa32c49e"
+  },
+  {
+    "id": "F11",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF11: Can you retrieve the recorded owner of Twilight?\n",
+    "sha256": "f6084eadfac88289b4c4496277c063b08cf180bd1fee77140e624ee9ef971aaf"
+  },
+  {
+    "id": "F12",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF12: Which relationship references cannot be resolved in this dataset?\n",
+    "sha256": "f49fc73b8aff1e427ca31a957251a4db640ece45b2de27c822a17d0feb27a8d5"
+  },
+  {
+    "id": "F13",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF13: Does North Pasture exist? What is its area, and can you verify its boundaries?\n",
+    "sha256": "7ac5465eb57233b88fb87058be4a7034b57053a36471948f693656c7b92dde15"
+  },
+  {
+    "id": "F14",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF14: What breed are the cattle, and can you confirm why Twilight needs to see the vet?\n",
+    "sha256": "1f0374696972dcc576d44bb157e379697afb2e071a24d3144eabaa2c5d727ca1"
+  },
+  {
+    "id": "F15",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF15: Retrieve all Animals in pages of twenty, without duplicates.\n",
+    "sha256": "f9e9decd856193bd99123a201c28104310435d1bc2567930adce5de370abfdbd"
+  },
+  {
+    "id": "F16",
+    "text": "Answer the following question in English using only native FIWARE MCP read tools. Do not read files, use shell or web tools, modify broker data, or invent missing facts. Discover the necessary types and attributes from the broker. Follow actual relationship targets and paginate where needed. Include exact entity IDs, observed values and units, query arguments, and relevant errors or limitations. Distinguish facts from assumptions.\n\nF16: How has the weight of the Animals changed over the last twelve months?\n",
+    "sha256": "179c2d04a7fe59da1ed62d7d3c0fb52c1780b1ff2fd76fc927a56d8f21e76929"
+  }
+]
