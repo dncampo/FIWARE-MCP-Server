@@ -1,0 +1,66 @@
+[
+  {
+    "id": "F01",
+    "question": "Explore the farm and report the available entity types and the count of each type."
+  },
+  {
+    "id": "F02",
+    "question": "Which attributes are observed on Animals, and which represent relationships or geographic locations?"
+  },
+  {
+    "id": "F03",
+    "question": "Which Animals have a heart rate greater than 56?"
+  },
+  {
+    "id": "F04",
+    "question": "Which Animals have a weight greater than 500, and what units are recorded?"
+  },
+  {
+    "id": "F05",
+    "question": "List all pigs on the farm."
+  },
+  {
+    "id": "F06",
+    "question": "How many dairy cattle are there?"
+  },
+  {
+    "id": "F07",
+    "question": "Which parcels have a temperature greater than 10, and what values are recorded?"
+  },
+  {
+    "id": "F08",
+    "question": "Are there any Animals with a heart rate greater than 1000?"
+  },
+  {
+    "id": "F09",
+    "question": "Where is Beany located, and who is the recorded owner? Retrieve the related entities."
+  },
+  {
+    "id": "F10",
+    "question": "Identify the parents and recorded locations of Bumble, Blossom and Buttercup."
+  },
+  {
+    "id": "F11",
+    "question": "Can you retrieve the recorded owner of Twilight?"
+  },
+  {
+    "id": "F12",
+    "question": "Which relationship references cannot be resolved in this dataset?"
+  },
+  {
+    "id": "F13",
+    "question": "Does North Pasture exist? What is its area, and can you verify its boundaries?"
+  },
+  {
+    "id": "F14",
+    "question": "What breed are the cattle, and can you confirm why Twilight needs to see the vet?"
+  },
+  {
+    "id": "F15",
+    "question": "Retrieve all Animals in pages of twenty, without duplicates."
+  },
+  {
+    "id": "F16",
+    "question": "How has the weight of the Animals changed over the last twelve months?"
+  }
+]

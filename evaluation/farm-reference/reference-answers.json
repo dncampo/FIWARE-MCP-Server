@@ -1,0 +1,1036 @@
+{
+  "provenance": {
+    "source_repository": "https://github.com/dncampo/fgs2025-talking-with-smart-solution",
+    "source_revision": "05c6fdd118b731a5c362b0892c9efb00968dc7a4",
+    "checkout_head": "348dbf89f8db516f5fc782342733a7f78a5165f9",
+    "payload_sha256": "801836e2928521c2d2f0de99956c72e449f7620fed5515d796cecd78e39350a1",
+    "method": "Offline replay of original update/update/update/update/replace batches; no broker or LLM calls.",
+    "restriction": "Keep reference answers outside evaluated client context; these are expected results, not live test passes."
+  },
+  "questions": [
+    {
+      "id": "F01",
+      "question": "Explore the farm and report the available entity types and the count of each type.",
+      "category": "current_state",
+      "expected": {
+        "counts": {
+          "Animal": 47,
+          "AgriParcel": 6,
+          "Building": 4,
+          "Person": 4
+        },
+        "total": 61
+      },
+      "suggested_tools": [
+        "get_types",
+        "query_entities"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F02",
+      "question": "Which attributes are observed on Animals, and which represent relationships or geographic locations?",
+      "category": "current_state",
+      "expected": {
+        "observed_attributes": {
+          "birthdate": [
+            "Property"
+          ],
+          "calvedBy": [
+            "Relationship"
+          ],
+          "comment": [
+            "Property"
+          ],
+          "fedWith": [
+            "Property"
+          ],
+          "healthCondition": [
+            "VocabProperty"
+          ],
+          "heartRate": [
+            "Property"
+          ],
+          "legalId": [
+            "Property"
+          ],
+          "locatedAt": [
+            "Relationship"
+          ],
+          "location": [
+            "GeoProperty"
+          ],
+          "name": [
+            "Property"
+          ],
+          "ownedBy": [
+            "Relationship"
+          ],
+          "phenologicalCondition": [
+            "VocabProperty"
+          ],
+          "reproductiveCondition": [
+            "VocabProperty"
+          ],
+          "sex": [
+            "VocabProperty"
+          ],
+          "siredBy": [
+            "Relationship"
+          ],
+          "species": [
+            "Property"
+          ],
+          "weight": [
+            "Property"
+          ]
+        },
+        "formal_schema_established": false,
+        "note": "Six source relationship attributes omit type; prior Orion ingestion normalizes them."
+      },
+      "suggested_tools": [
+        "get_attributes",
+        "query_entities"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F03",
+      "question": "Which Animals have a heart rate greater than 56?",
+      "category": "current_state",
+      "expected": {
+        "count": 1,
+        "matches": [
+          {
+            "id": "urn:ngsi-ld:Animal:cow005",
+            "name": "Sun",
+            "value": 70,
+            "unitCode": "5K"
+          }
+        ]
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "Animal",
+        "q": "heartRate>56",
+        "attrs": [
+          "name",
+          "heartRate"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F04",
+      "question": "Which Animals have a weight greater than 500, and what units are recorded?",
+      "category": "current_state",
+      "expected": {
+        "count": 2,
+        "matches": [
+          {
+            "id": "urn:ngsi-ld:Animal:cow001",
+            "name": "Beany",
+            "value": 838,
+            "unitCode": "KGM"
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow021",
+            "name": "Ferdinand",
+            "value": 699,
+            "unitCode": "KGM"
+          }
+        ]
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "Animal",
+        "q": "weight>500",
+        "attrs": [
+          "name",
+          "weight"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F05",
+      "question": "List all pigs on the farm.",
+      "category": "current_state",
+      "expected": {
+        "count": 4,
+        "matches": [
+          {
+            "id": "urn:ngsi-ld:Animal:pig001",
+            "name": "Bubblegum",
+            "value": "pig",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:pig002",
+            "name": "Fuchshia",
+            "value": "pig",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:pig003",
+            "name": "Flamingo",
+            "value": "pig",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:pig004",
+            "name": "Salmon",
+            "value": "pig",
+            "unitCode": null
+          }
+        ]
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "Animal",
+        "q": "species==\"pig\"",
+        "attrs": [
+          "name",
+          "species"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F06",
+      "question": "How many dairy cattle are there?",
+      "category": "current_state",
+      "expected": {
+        "count": 43,
+        "matches": [
+          {
+            "id": "urn:ngsi-ld:Animal:cow001",
+            "name": "Beany",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow002",
+            "name": "Trotter",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow003",
+            "name": "Petal",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow004",
+            "name": "River",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow005",
+            "name": "Sun",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow006",
+            "name": "Twilight",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow007",
+            "name": "Diamond",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow008",
+            "name": "Pollen",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow009",
+            "name": "Juicey",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow010",
+            "name": "Tulip",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow011",
+            "name": "Oats",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow012",
+            "name": "Rain",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow013",
+            "name": "Silver",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow014",
+            "name": "Stamps",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow015",
+            "name": "Button",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow016",
+            "name": "Lacey",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow017",
+            "name": "Fisher",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow018",
+            "name": "Rice",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow019",
+            "name": "Eenie",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow020",
+            "name": "Chalky",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow021",
+            "name": "Ferdinand",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow022",
+            "name": "Feather",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow023",
+            "name": "Happy",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow024",
+            "name": "Fluffy",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow025",
+            "name": "Bug",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow026",
+            "name": "Opal",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow027",
+            "name": "Fresian",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow028",
+            "name": "Star",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow029",
+            "name": "Clover",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow030",
+            "name": "Flower",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow031",
+            "name": "Grape",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow032",
+            "name": "Citrus",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow033",
+            "name": "Hero",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow034",
+            "name": "Cloud",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow035",
+            "name": "Jersey",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow036",
+            "name": "Cream",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow037",
+            "name": "Marble",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow038",
+            "name": "Sugar",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow039",
+            "name": "Pepsi",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow040",
+            "name": "Spots",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow101",
+            "name": "Bumble",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow102",
+            "name": "Blossom",
+            "value": "dairy cattle",
+            "unitCode": null
+          },
+          {
+            "id": "urn:ngsi-ld:Animal:cow103",
+            "name": "Buttercup",
+            "value": "dairy cattle",
+            "unitCode": null
+          }
+        ]
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "Animal",
+        "q": "species==\"dairy cattle\"",
+        "attrs": [
+          "name",
+          "species"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F07",
+      "question": "Which parcels have a temperature greater than 10, and what values are recorded?",
+      "category": "current_state",
+      "expected": {
+        "count": 3,
+        "matches": [
+          {
+            "id": "urn:ngsi-ld:AgriParcel:001",
+            "name": "Wheatfield",
+            "value": 10.4,
+            "unitCode": "CEL"
+          },
+          {
+            "id": "urn:ngsi-ld:AgriParcel:002",
+            "name": "Cornfield",
+            "value": 10.4,
+            "unitCode": "CEL"
+          },
+          {
+            "id": "urn:ngsi-ld:AgriParcel:003",
+            "name": "North Pasture",
+            "value": 10.4,
+            "unitCode": "CEL"
+          }
+        ]
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "AgriParcel",
+        "q": "temperature>10",
+        "attrs": [
+          "name",
+          "temperature"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F08",
+      "question": "Are there any Animals with a heart rate greater than 1000?",
+      "category": "current_state",
+      "expected": {
+        "count": 0,
+        "matches": []
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "Animal",
+        "q": "heartRate>1000",
+        "attrs": [
+          "name",
+          "heartRate"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F09",
+      "question": "Where is Beany located, and who is the recorded owner? Retrieve the related entities.",
+      "category": "current_state",
+      "expected": {
+        "animal": "urn:ngsi-ld:Animal:cow001",
+        "relationships": [
+          {
+            "source": "urn:ngsi-ld:Animal:cow001",
+            "attribute": "locatedAt",
+            "target": "urn:ngsi-ld:AgriParcel:003",
+            "target_in_fixture": true
+          },
+          {
+            "source": "urn:ngsi-ld:Animal:cow001",
+            "attribute": "ownedBy",
+            "target": "urn:ngsi-ld:Person:person002",
+            "target_in_fixture": true
+          }
+        ],
+        "targets": [
+          {
+            "id": "urn:ngsi-ld:AgriParcel:003",
+            "type": "AgriParcel",
+            "name": {
+              "type": "Property",
+              "value": "North Pasture"
+            },
+            "cropStatus": {
+              "type": "VocabProperty",
+              "vocab": "maturing"
+            },
+            "cropType": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:AgriCrop:Grass"
+            },
+            "temperature": {
+              "type": "Property",
+              "value": 10.4,
+              "unitCode": "CEL",
+              "observedAt": "2024-02-02T15:00:00.000Z"
+            }
+          },
+          {
+            "id": "urn:ngsi-ld:Person:person002",
+            "type": "Person",
+            "gender": {
+              "type": "Property",
+              "value": "Male"
+            },
+            "givenName": {
+              "type": "Property",
+              "value": "Napoleon"
+            },
+            "name": {
+              "type": "Property",
+              "value": "Napoleon the Pig"
+            },
+            "jobTitle": {
+              "type": "Property",
+              "value": {
+                "inDefinedTermSet": "https://targetjobs.co.uk/careers-advice/job-descriptions",
+                "termCode": "277119-agricultural-manager-job-description",
+                "name": "Agricultural Manager",
+                "url": "https://targetjobs.co.uk/careers-advice/job-descriptions/277119-agricultural-manager-job-description"
+              }
+            },
+            "owns": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Building:farm002"
+            },
+            "weight": {
+              "type": "Property",
+              "value": 270,
+              "unitCode": "KGM"
+            }
+          }
+        ]
+      },
+      "suggested_tools": [
+        "query_entities",
+        "get_entity"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F10",
+      "question": "Identify the parents and recorded locations of Bumble, Blossom and Buttercup.",
+      "category": "current_state",
+      "expected": {
+        "calves": {
+          "urn:ngsi-ld:Animal:cow101": {
+            "name": {
+              "type": "Property",
+              "value": "Bumble"
+            },
+            "calvedBy": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Animal:cow002"
+            },
+            "siredBy": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Animal:cow001"
+            },
+            "locatedAt": null
+          },
+          "urn:ngsi-ld:Animal:cow102": {
+            "name": {
+              "type": "Property",
+              "value": "Blossom"
+            },
+            "calvedBy": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Animal:cow004"
+            },
+            "siredBy": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Animal:cow001"
+            },
+            "locatedAt": {
+              "object": "urn:ngsi-ld:AgriParcel:005"
+            }
+          },
+          "urn:ngsi-ld:Animal:cow103": {
+            "name": {
+              "type": "Property",
+              "value": "Buttercup"
+            },
+            "calvedBy": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Animal:cow006"
+            },
+            "siredBy": {
+              "type": "Relationship",
+              "object": "urn:ngsi-ld:Animal:cow001"
+            },
+            "locatedAt": {
+              "object": "urn:ngsi-ld:Building:barn002"
+            }
+          }
+        },
+        "missing_location": [
+          "urn:ngsi-ld:Animal:cow101"
+        ]
+      },
+      "suggested_tools": [
+        "query_entities",
+        "get_entity"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F11",
+      "question": "Can you retrieve the recorded owner of Twilight?",
+      "category": "current_state",
+      "expected": {
+        "source": "urn:ngsi-ld:Animal:cow006",
+        "attribute": "ownedBy",
+        "target": "urn:ngsi-ld:Person:001",
+        "expected_http_status": 404,
+        "must_not_substitute": "urn:ngsi-ld:Person:person001"
+      },
+      "suggested_tools": [
+        "query_entities",
+        "get_entity"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F12",
+      "question": "Which relationship references cannot be resolved in this dataset?",
+      "category": "current_state",
+      "expected": {
+        "missing_edges": [
+          {
+            "source": "urn:ngsi-ld:Animal:cow006",
+            "attribute": "ownedBy",
+            "target": "urn:ngsi-ld:Person:001",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:AgriParcel:001",
+            "attribute": "cropType",
+            "target": "urn:ngsi-ld:AgriCrop:BuckWheat",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:AgriParcel:002",
+            "attribute": "cropType",
+            "target": "urn:ngsi-ld:AgriCrop:Corn",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:AgriParcel:003",
+            "attribute": "cropType",
+            "target": "urn:ngsi-ld:AgriCrop:Grass",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:AgriParcel:004",
+            "attribute": "cropType",
+            "target": "urn:ngsi-ld:AgriCrop:Grass",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:AgriParcel:005",
+            "attribute": "cropType",
+            "target": "urn:ngsi-ld:AgriCrop:Grass",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:AgriParcel:006",
+            "attribute": "cropType",
+            "target": "urn:ngsi-ld:AgriCrop:Grass",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:Animal:cow102",
+            "attribute": "ownedBy",
+            "target": "urn:ngsi-ld:Person:001",
+            "target_in_fixture": false
+          },
+          {
+            "source": "urn:ngsi-ld:Animal:cow103",
+            "attribute": "ownedBy",
+            "target": "urn:ngsi-ld:Person:001",
+            "target_in_fixture": false
+          }
+        ],
+        "distinct_targets": [
+          "urn:ngsi-ld:AgriCrop:BuckWheat",
+          "urn:ngsi-ld:AgriCrop:Corn",
+          "urn:ngsi-ld:AgriCrop:Grass",
+          "urn:ngsi-ld:Person:001"
+        ]
+      },
+      "suggested_tools": [
+        "query_entities",
+        "get_entity"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F13",
+      "question": "Does North Pasture exist? What is its area, and can you verify its boundaries?",
+      "category": "missing_information",
+      "expected": {
+        "entity": {
+          "id": "urn:ngsi-ld:AgriParcel:003",
+          "type": "AgriParcel",
+          "name": {
+            "type": "Property",
+            "value": "North Pasture"
+          },
+          "cropStatus": {
+            "type": "VocabProperty",
+            "vocab": "maturing"
+          },
+          "cropType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:AgriCrop:Grass"
+          },
+          "temperature": {
+            "type": "Property",
+            "value": 10.4,
+            "unitCode": "CEL",
+            "observedAt": "2024-02-02T15:00:00.000Z"
+          }
+        },
+        "area_recorded": false,
+        "parcel_boundary_recorded": false,
+        "cannot_establish": [
+          "parcel area",
+          "fence crossing"
+        ]
+      },
+      "suggested_tools": [
+        "query_entities",
+        "get_entity"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F14",
+      "question": "What breed are the cattle, and can you confirm why Twilight needs to see the vet?",
+      "category": "missing_information",
+      "expected": {
+        "breed_observed": false,
+        "twilight": {
+          "id": "urn:ngsi-ld:Animal:cow006",
+          "type": "Animal",
+          "species": {
+            "type": "Property",
+            "value": "dairy cattle"
+          },
+          "name": {
+            "type": "Property",
+            "value": "Twilight"
+          },
+          "heartRate": {
+            "type": "Property",
+            "value": 53,
+            "unitCode": "5K"
+          },
+          "location": {
+            "type": "GeoProperty",
+            "value": {
+              "type": "Point",
+              "coordinates": [
+                13.176,
+                52.102
+              ]
+            },
+            "observedAt": "2024-02-02T15:00:00.000Z"
+          },
+          "locatedAt": {
+            "object": "urn:ngsi-ld:Building:barn002"
+          },
+          "ownedBy": {
+            "object": "urn:ngsi-ld:Person:001"
+          },
+          "birthdate": {
+            "type": "Property",
+            "value": "2019-05-24T00:00:00.000Z"
+          },
+          "sex": {
+            "type": "VocabProperty",
+            "vocab": "Female"
+          },
+          "phenologicalCondition": {
+            "type": "VocabProperty",
+            "vocab": "femaleAdult"
+          },
+          "weight": {
+            "type": "Property",
+            "value": 465,
+            "unitCode": "KGM"
+          },
+          "reproductiveCondition": {
+            "type": "VocabProperty",
+            "vocab": "noStatus",
+            "observedAt": "2024-02-02T15:00:00.000Z"
+          },
+          "legalId": {
+            "type": "Property",
+            "value": "F-cow006-Twilight"
+          },
+          "fedWith": {
+            "type": "Property",
+            "value": "Oats"
+          },
+          "healthCondition": {
+            "type": "VocabProperty",
+            "vocab": "healthy",
+            "observedAt": "2024-02-02T15:00:00.000Z"
+          },
+          "comment": {
+            "type": "Property",
+            "value": "Needs to see the vet.",
+            "observedAt": "2024-02-02T15:00:00.000Z"
+          }
+        },
+        "diagnosis_confirmed": false,
+        "must_not_claim": [
+          "all cattle are Jersey",
+          "Twilight is definitely not sick",
+          "calved today relative to current date"
+        ]
+      },
+      "suggested_tools": [
+        "get_attributes",
+        "query_entities",
+        "get_entity"
+      ],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F15",
+      "question": "Retrieve all Animals in pages of twenty, without duplicates.",
+      "category": "current_state",
+      "expected": {
+        "count": 47,
+        "ids": [
+          "urn:ngsi-ld:Animal:cow001",
+          "urn:ngsi-ld:Animal:cow002",
+          "urn:ngsi-ld:Animal:cow003",
+          "urn:ngsi-ld:Animal:cow004",
+          "urn:ngsi-ld:Animal:cow005",
+          "urn:ngsi-ld:Animal:cow006",
+          "urn:ngsi-ld:Animal:cow007",
+          "urn:ngsi-ld:Animal:cow008",
+          "urn:ngsi-ld:Animal:cow009",
+          "urn:ngsi-ld:Animal:cow010",
+          "urn:ngsi-ld:Animal:cow011",
+          "urn:ngsi-ld:Animal:cow012",
+          "urn:ngsi-ld:Animal:cow013",
+          "urn:ngsi-ld:Animal:cow014",
+          "urn:ngsi-ld:Animal:cow015",
+          "urn:ngsi-ld:Animal:cow016",
+          "urn:ngsi-ld:Animal:cow017",
+          "urn:ngsi-ld:Animal:cow018",
+          "urn:ngsi-ld:Animal:cow019",
+          "urn:ngsi-ld:Animal:cow020",
+          "urn:ngsi-ld:Animal:cow021",
+          "urn:ngsi-ld:Animal:cow022",
+          "urn:ngsi-ld:Animal:cow023",
+          "urn:ngsi-ld:Animal:cow024",
+          "urn:ngsi-ld:Animal:cow025",
+          "urn:ngsi-ld:Animal:cow026",
+          "urn:ngsi-ld:Animal:cow027",
+          "urn:ngsi-ld:Animal:cow028",
+          "urn:ngsi-ld:Animal:cow029",
+          "urn:ngsi-ld:Animal:cow030",
+          "urn:ngsi-ld:Animal:cow031",
+          "urn:ngsi-ld:Animal:cow032",
+          "urn:ngsi-ld:Animal:cow033",
+          "urn:ngsi-ld:Animal:cow034",
+          "urn:ngsi-ld:Animal:cow035",
+          "urn:ngsi-ld:Animal:cow036",
+          "urn:ngsi-ld:Animal:cow037",
+          "urn:ngsi-ld:Animal:cow038",
+          "urn:ngsi-ld:Animal:cow039",
+          "urn:ngsi-ld:Animal:cow040",
+          "urn:ngsi-ld:Animal:cow101",
+          "urn:ngsi-ld:Animal:cow102",
+          "urn:ngsi-ld:Animal:cow103",
+          "urn:ngsi-ld:Animal:pig001",
+          "urn:ngsi-ld:Animal:pig002",
+          "urn:ngsi-ld:Animal:pig003",
+          "urn:ngsi-ld:Animal:pig004"
+        ],
+        "page_lengths": [
+          20,
+          20,
+          7
+        ],
+        "order_requirement": "Compare sets, not an assumed broker sorting order."
+      },
+      "suggested_tools": [
+        "query_entities"
+      ],
+      "example_arguments": {
+        "type": "Animal",
+        "attrs": [
+          "name"
+        ],
+        "limit": 20,
+        "offset": 0
+      },
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "F16",
+      "question": "How has the weight of the Animals changed over the last twelve months?",
+      "category": "unsupported_capability",
+      "expected": {
+        "capability_status": "UNSUPPORTED_BY_CURRENT_MCP",
+        "reason": "The seven tools expose current state, not a temporal history endpoint.",
+        "observedAt_is_not_a_time_series": true,
+        "must_not_invent": [
+          "historical values",
+          "growth rates",
+          "trends"
+        ]
+      },
+      "suggested_tools": [],
+      "example_arguments": {},
+      "execution_status": "NOT_RUN"
+    }
+  ]
+}

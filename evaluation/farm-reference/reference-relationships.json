@@ -1,0 +1,614 @@
+[
+  {
+    "source": "urn:ngsi-ld:Animal:cow001",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow001",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow002",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow002",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow003",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow003",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow004",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow004",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow005",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow005",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow006",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:Building:barn002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow006",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:001",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow007",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow007",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow008",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow008",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow009",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow009",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow010",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow010",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow011",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow011",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow012",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow012",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow013",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow013",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow014",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:006",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow014",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow015",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow015",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow016",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow016",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow017",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow017",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow018",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow018",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow019",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow019",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow020",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow020",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow021",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:006",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow021",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow022",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow022",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow023",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow023",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow024",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow024",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow025",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow025",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow026",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow026",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow027",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow027",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow028",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:006",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow028",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow029",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:006",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow029",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow030",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow030",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow031",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow031",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow032",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow032",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow033",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow033",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow034",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow034",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow035",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:006",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow035",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow036",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:003",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow036",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow037",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow037",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow038",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow038",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow039",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow039",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow040",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow040",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:AgriParcel:001",
+    "attribute": "cropType",
+    "target": "urn:ngsi-ld:AgriCrop:BuckWheat",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:AgriParcel:002",
+    "attribute": "cropType",
+    "target": "urn:ngsi-ld:AgriCrop:Corn",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:AgriParcel:003",
+    "attribute": "cropType",
+    "target": "urn:ngsi-ld:AgriCrop:Grass",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:AgriParcel:004",
+    "attribute": "cropType",
+    "target": "urn:ngsi-ld:AgriCrop:Grass",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:AgriParcel:005",
+    "attribute": "cropType",
+    "target": "urn:ngsi-ld:AgriCrop:Grass",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:AgriParcel:006",
+    "attribute": "cropType",
+    "target": "urn:ngsi-ld:AgriCrop:Grass",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow101",
+    "attribute": "calvedBy",
+    "target": "urn:ngsi-ld:Animal:cow002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow101",
+    "attribute": "siredBy",
+    "target": "urn:ngsi-ld:Animal:cow001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow102",
+    "attribute": "calvedBy",
+    "target": "urn:ngsi-ld:Animal:cow004",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow102",
+    "attribute": "siredBy",
+    "target": "urn:ngsi-ld:Animal:cow001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow102",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:AgriParcel:005",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow102",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:001",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow103",
+    "attribute": "calvedBy",
+    "target": "urn:ngsi-ld:Animal:cow006",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow103",
+    "attribute": "siredBy",
+    "target": "urn:ngsi-ld:Animal:cow001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow103",
+    "attribute": "locatedAt",
+    "target": "urn:ngsi-ld:Building:barn002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Animal:cow103",
+    "attribute": "ownedBy",
+    "target": "urn:ngsi-ld:Person:001",
+    "target_in_fixture": false
+  },
+  {
+    "source": "urn:ngsi-ld:Building:farm001",
+    "attribute": "owner",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Building:barn002",
+    "attribute": "owner",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Building:tower003",
+    "attribute": "owner",
+    "target": "urn:ngsi-ld:Person:person001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Building:farm002",
+    "attribute": "owner",
+    "target": "urn:ngsi-ld:Person:person002",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Person:person001",
+    "attribute": "owns",
+    "target": "urn:ngsi-ld:Building:farm001",
+    "target_in_fixture": true
+  },
+  {
+    "source": "urn:ngsi-ld:Person:person002",
+    "attribute": "owns",
+    "target": "urn:ngsi-ld:Building:farm002",
+    "target_in_fixture": true
+  }
+]

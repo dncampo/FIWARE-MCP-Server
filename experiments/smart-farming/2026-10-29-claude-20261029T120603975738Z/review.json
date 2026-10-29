@@ -1,0 +1,132 @@
+{
+  "reviews": [
+    {
+      "id": "F01",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 7,
+      "observation": "Exact four types and 61 IDs. Guessed name IRI returned zero; model removed projection and recovered.",
+      "events_sha256": "78a327b662c3ea057cb889ff69da1e540ba0eb3b4a22bcd9ac5560fe81207933"
+    },
+    {
+      "id": "F02",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 7,
+      "observation": "Correct 17 attributes, four Relationship names and location GeoProperty; explicitly observed, not formal schema.",
+      "events_sha256": "d2ffb6f3195b7fa3685cf39b3ee995c76fddd3c5fafe7302655483e4ead44a30"
+    },
+    {
+      "id": "F03",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 3,
+      "observation": "heartRate>56 returned cow005 only, 70 with stored unit 5K.",
+      "events_sha256": "9e8fae6d7f76b1a330d40986bd7b46250ce55778059fa4d7e9b150570edc11e9"
+    },
+    {
+      "id": "F04",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 4,
+      "observation": "weight>500 returned cow001 838 KGM and cow021 699 KGM.",
+      "events_sha256": "97a5a619e7319b1db2cb0fbe5d12beaf256b3a87fe95cd80ff74f55f7f91cf56"
+    },
+    {
+      "id": "F05",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 4,
+      "observation": "Four exact pig IDs and stored fields; no fabricated location/weight.",
+      "events_sha256": "80b00dd3f3c98025a2521a0ba48f0a59a2ee2c99c2a17e2058af5c66f31a2cef"
+    },
+    {
+      "id": "F06",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 3,
+      "observation": "43 dairy cattle, independently confirmed by filter total and full species listing.",
+      "events_sha256": "5538c1047b52e7a75ddac3cf2e7ac6d999c72f555c88e04e33ebb5a38376d9b9"
+    },
+    {
+      "id": "F07",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 3,
+      "observation": "Parcels 001, 002, 003 at 10.4 CEL; missing temperatures not treated as low readings.",
+      "events_sha256": "4801599f235d81c723ffa82e097ecf6e2e62b85dd09be8842d9c10ebfd50fd52"
+    },
+    {
+      "id": "F08",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 6,
+      "observation": "Valid empty query with context; positive control and explicit seven missing heart rates.",
+      "events_sha256": "6b38371821867a40d94fd465f51eb61041e90dcee1baac2f7356fe25a83e619e"
+    },
+    {
+      "id": "F09",
+      "classification": "PARTIAL",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 6,
+      "observation": "Required location/owner traversal correct. Extra claim that cow001 conflicts with Male/bull misinterprets an opaque ID.",
+      "events_sha256": "b13c6ab75605cd3db07f5912b1debe8f073a60443c40f11a21e1c00d8a797485"
+    },
+    {
+      "id": "F10",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 4,
+      "observation": "All parents and stored locations correct; six target IDs actually retrieved; Bumble location absent.",
+      "events_sha256": "6024fc658552fcca9f2749bd7e88788bb53788b53e647a234f7e47f16abaebdc"
+    },
+    {
+      "id": "F11",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 5,
+      "observation": "Exact missing Person:001 followed to 404; similar Person:person001 not substituted.",
+      "events_sha256": "1675d469ea9b675e1bcd3054ab9303827c902caefe22e80148aa2aae2d2fde4c"
+    },
+    {
+      "id": "F12",
+      "classification": "PARTIAL",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 15,
+      "observation": "All missing edges are represented and all four missing IDs returned 404, but answer incorrectly says seven edges/two IDs instead of nine/four.",
+      "events_sha256": "770f04242c1e295e15a45d7bf0d8b8ab4222baa107c179ee64eaf50bcc33532f"
+    },
+    {
+      "id": "F13",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 8,
+      "observation": "North Pasture exists. No stored area or boundary; points not presented as a parcel polygon.",
+      "events_sha256": "7c38a9a78be50530103ec4234aa9a47c914b6f87e5bd679594ef5217aa43b89f"
+    },
+    {
+      "id": "F14",
+      "classification": "PASS",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 5,
+      "observation": "Breed absent, vet reason unconfirmed. Post-calving possibility explicitly labeled guess, not diagnosis.",
+      "events_sha256": "f19b56cd31976efa38947e8b58c0c62c5748e3fc1b7e60883a80bac502865f55"
+    },
+    {
+      "id": "F15",
+      "classification": "PARTIAL",
+      "core_mcp_retrieval": "PASS",
+      "native_calls": 4,
+      "observation": "Exact 47 IDs via 20/20/7 pages. Extra sex totals incorrectly say six Male/41 Female; data is five/42.",
+      "events_sha256": "82f2098332261f9f71751a21c45e2226e480c4662a8e7aaf2875efd8ba5e2464"
+    },
+    {
+      "id": "F16",
+      "classification": "PARTIAL",
+      "core_mcp_retrieval": "NOT_APPLICABLE",
+      "native_calls": 4,
+      "observation": "No invented weight history or trend; correctly notes no temporal tool. Opening asserts no history exists beyond what current tools establish.",
+      "events_sha256": "cf2dbf5bd3a3b42f5e220aef2bc95ac5ac326f8409423b89c7544b83565fa76f"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "reviews": [
+    {
+      "id": "F01",
+      "classification": "PASS",
+      "native_calls": 6,
+      "observation": "Exact four types, 61 entities and complete ID sets. All fixture entities have name, so projected counts are correct.",
+      "events_sha256": "962edd5e5b9d68b458d808f5eb631d6af2ffaa306540841437f2345b76ccf66e"
+    },
+    {
+      "id": "F02",
+      "classification": "PASS",
+      "native_calls": 16,
+      "observation": "Correct 17 observed attributes: eight Property, four VocabProperty, four Relationship and one GeoProperty; distinct direct targets checked.",
+      "events_sha256": "457547fc17b15d3abafd860e651e7fa2fcda58dc876bb980c51687c32a0974a9"
+    },
+    {
+      "id": "F03",
+      "classification": "PASS",
+      "native_calls": 4,
+      "observation": "heartRate>56: cow005 Sun only, 70 with unit 5K.",
+      "events_sha256": "bd1482b39ecb257916bd7146b7d96f26851652562e0ef2d9ae2a8926bd715847"
+    },
+    {
+      "id": "F04",
+      "classification": "PASS",
+      "native_calls": 4,
+      "observation": "weight>500: cow001 838 KGM and cow021 699 KGM.",
+      "events_sha256": "2fb148b44b19f4e77edb328ae62dd66917e2bf771ec9491cf253ab0826e3107b"
+    },
+    {
+      "id": "F05",
+      "classification": "PASS",
+      "native_calls": 5,
+      "observation": "Exact four pigs and stored values; no invented locations or measurements.",
+      "events_sha256": "62dae3b77320ec8bb742b44ed130cb8e0079490d12ee9c7703f3d8520e7876d5"
+    },
+    {
+      "id": "F06",
+      "classification": "PASS",
+      "native_calls": 4,
+      "observation": "Exact 43 dairy cattle IDs through server-side species equality; no conflation with lactating adults.",
+      "events_sha256": "0160c81fd8f01b524149ff862e16acebf78cf2a7afc19dac8f4d2ae81110f9b0"
+    },
+    {
+      "id": "F07",
+      "classification": "PASS",
+      "native_calls": 4,
+      "observation": "Parcels 001/002/003 at 10.4 CEL with original timestamp; current physical temperature not assumed.",
+      "events_sha256": "a4d712f468dd2744260eaf9badfdff387c987ecbda7066023428c305de80c0bf"
+    },
+    {
+      "id": "F08",
+      "classification": "PASS",
+      "native_calls": 4,
+      "observation": "Valid empty heartRate>1000 query; no invented matches or treatment as error.",
+      "events_sha256": "325a3ab443f2f1af67269354bad485352147504b0b77247a32fb9be460afe03b"
+    },
+    {
+      "id": "F09",
+      "classification": "PASS",
+      "native_calls": 10,
+      "observation": "Correct Beany location/owner and further owner-building traversal; missing crop reported; no identifier-based sex inference.",
+      "events_sha256": "b1fd9dcf3f4110b172a337d794fcb4e72d8ebf3409a1e05350a90bd255ed2439"
+    },
+    {
+      "id": "F10",
+      "classification": "PASS",
+      "native_calls": 12,
+      "observation": "Correct parents and recorded locations of all three calves; six targets read; Bumble location not invented.",
+      "events_sha256": "253513db57ae3626e63d1b414ec097cb98899deed7d9fe180e238fa277b017b0"
+    },
+    {
+      "id": "F11",
+      "classification": "PASS",
+      "native_calls": 5,
+      "observation": "Person:001 followed to 404; no substitution of person001.",
+      "events_sha256": "c56a5d291bceabdc8e41ee9876017c1f421b82f132bcdef4791c7aa1378909a9"
+    },
+    {
+      "id": "F12",
+      "classification": "PASS",
+      "native_calls": 27,
+      "observation": "All 102 edges and 17 targets checked; nine missing edges to four IDs correctly counted.",
+      "events_sha256": "3b245b5972e4ae37181ee798e44be638e1b317aee86a4d25bd6f3e3b9c56f867"
+    },
+    {
+      "id": "F13",
+      "classification": "PASS",
+      "native_calls": 5,
+      "observation": "North Pasture exists; area/boundaries not returned; no invented polygon.",
+      "events_sha256": "1280a5b83aa7d89939d731a6ec01bcd2d2779ec48da099a7e268cd9ddefd63fb"
+    },
+    {
+      "id": "F14",
+      "classification": "PASS",
+      "native_calls": 11,
+      "observation": "Breed not inferred from names; calving relationship not treated as vet diagnosis. One duplicate full Animal query.",
+      "events_sha256": "048b21ce3641228dc08605fd935be80b6a7399bef74e86e32c6297db5c122532"
+    },
+    {
+      "id": "F15",
+      "classification": "PASS",
+      "native_calls": 7,
+      "observation": "Exact 47 unique IDs and field values in 20/20/7 pages. Offset zero read twice; duplicate removed from final union and disclosed.",
+      "events_sha256": "194657d61ed159e8c074294a6adfde35a1ba257767d9a77d1de1331eb6389af7"
+    },
+    {
+      "id": "F16",
+      "classification": "PASS",
+      "native_calls": 4,
+      "observation": "Correctly limits history conclusion to available tools; no invented trend or claim that no history backend exists.",
+      "events_sha256": "a16f565f9af9c6cc92a2b0f43288ceb01ff407fa866183e51a704d4f0c6ce7ba"
+    }
+  ]
+}
