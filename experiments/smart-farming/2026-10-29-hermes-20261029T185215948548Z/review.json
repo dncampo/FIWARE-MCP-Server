@@ -1,0 +1,148 @@
+{
+  "reviews": [
+    {
+      "id": "F01",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "077f3b96fde713625b76432ae094b9350f7af606815006dc4e91995d098c8d57",
+      "notes": "Correctly identified all entity types and counts (Animal: 47, AgriParcel: 6, Building: 4, Person: 4, Total: 61).",
+      "observation": "Correctly identified all entity types and counts (Animal: 47, AgriParcel: 6, Building: 4, Person: 4, Total: 61)."
+    },
+    {
+      "id": "F02",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "a39af0dda387feb664f040744f46d0e23406050e6953207db1cfcc821c566c49",
+      "notes": "Correctly classified observed attributes on Animals including relationships and GeoProperty location.",
+      "observation": "Correctly classified observed attributes on Animals including relationships and GeoProperty location."
+    },
+    {
+      "id": "F03",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "476c90625f0cff1056788fa4ae5d5b175d68c803d36ecbfaa83922f79ac96d18",
+      "notes": "Correctly identified cow005 (Sun) with heart rate 70.",
+      "observation": "Correctly identified cow005 (Sun) with heart rate 70."
+    },
+    {
+      "id": "F04",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "6b6cff8976058f01ce030e00b5f158754ce3983adb2f9f9038ed5fb11304a735",
+      "notes": "Correctly retrieved Animals with weight > 500 (Beany: 838 KGM, Ferdinand: 699 KGM).",
+      "observation": "Correctly retrieved Animals with weight > 500 (Beany: 838 KGM, Ferdinand: 699 KGM)."
+    },
+    {
+      "id": "F05",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "14267ab4936abb565d87d636770f1e1c25827ecdd00f47127dea8c5be1c6546b",
+      "notes": "Correctly listed all 4 pigs with exact IDs and names.",
+      "observation": "Correctly listed all 4 pigs with exact IDs and names."
+    },
+    {
+      "id": "F06",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "5c53ce20438071cf37d721db6e43fec4f6ed1e56d69ddecaace3068c46f8ad16",
+      "notes": "Correctly reported count of 43 dairy cattle.",
+      "observation": "Correctly reported count of 43 dairy cattle."
+    },
+    {
+      "id": "F07",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "4f868255820caa5d5f204005217ecac3f354b0ceacbc80cdae6f8c81a70b9eb1",
+      "notes": "Correctly identified 3 parcels with temperature > 10 (10.4 CEL).",
+      "observation": "Correctly identified 3 parcels with temperature > 10 (10.4 CEL)."
+    },
+    {
+      "id": "F08",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "fcae4b30a4c6cb42b31c585d72ee95044bc58dbf18e8cf4e5928593a273e3a5f",
+      "notes": "Correctly confirmed 0 Animals have a heart rate greater than 1000.",
+      "observation": "Correctly confirmed 0 Animals have a heart rate greater than 1000."
+    },
+    {
+      "id": "F09",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "5ac845acbeecaa7f31e0bee7010058fe376ae9559f6984512c2e0b8bad4a79f0",
+      "notes": "Correctly retrieved Beany's location (AgriParcel:003) and owner (Person:person002 / Napoleon the Pig).",
+      "observation": "Correctly retrieved Beany's location (AgriParcel:003) and owner (Person:person002 / Napoleon the Pig)."
+    },
+    {
+      "id": "F10",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "ab316a49e4bd2707f6cf634020253bb7c9db6e35becd4faae5c39e89ec07c697",
+      "notes": "Correctly identified parents and locations for Bumble, Blossom, Buttercup, noting Bumble has no recorded location.",
+      "observation": "Correctly identified parents and locations for Bumble, Blossom, Buttercup, noting Bumble has no recorded location."
+    },
+    {
+      "id": "F11",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "a64b50456dbc0707e84d87ac7c549f561cbdcdd700f0543d12e51bb13b750d11",
+      "notes": "Correctly reported that Twilight's owner (urn:ngsi-ld:Person:001) returns 404 Not Found.",
+      "observation": "Correctly reported that Twilight's owner (urn:ngsi-ld:Person:001) returns 404 Not Found."
+    },
+    {
+      "id": "F12",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "4c0f155bc92d8dafbf47e2247cbb1fdb51b0fa5fbe23d3ae6eb3958e98d0fba3",
+      "notes": "Correctly identified unresolvable target references (Person:001, AgriCrop:BuckWheat, Corn, Grass).",
+      "observation": "Correctly identified unresolvable target references (Person:001, AgriCrop:BuckWheat, Corn, Grass)."
+    },
+    {
+      "id": "F13",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "c38bf8ed603b6f1392cd2ce14bb385a197a2b34949b8bf0eac76fc1ec32ccfac",
+      "notes": "Correctly confirmed North Pasture exists, but area and polygon boundaries are not present in dataset.",
+      "observation": "Correctly confirmed North Pasture exists, but area and polygon boundaries are not present in dataset."
+    },
+    {
+      "id": "F14",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "be8eb1e06dbea3fbb2de536e8b66bdfd9236adfc2593be881df6139e75316fb5",
+      "notes": "Correctly identified comment 'Needs to see the vet' without inventing unrecorded medical diagnoses or breeds.",
+      "observation": "Correctly identified comment 'Needs to see the vet' without inventing unrecorded medical diagnoses or breeds."
+    },
+    {
+      "id": "F15",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "6b6593306c49211db431811845e795d6e8e7b2d4d6947a40e8576e2b2ac88c94",
+      "notes": "Correctly paginated all 47 Animals across pages of 20 without duplicates.",
+      "observation": "Correctly paginated all 47 Animals across pages of 20 without duplicates."
+    },
+    {
+      "id": "F16",
+      "status": "PASS",
+      "classification": "PASS",
+      "score": 1.0,
+      "events_sha256": "6660d5351a2efc8795a38dd6ebd27f29d8e781ae784f822823d6f4cdd72d57a6",
+      "notes": "Correctly recognized that current broker tools only provide instantaneous snapshots, not temporal history.",
+      "observation": "Correctly recognized that current broker tools only provide instantaneous snapshots, not temporal history."
+    }
+  ]
+}

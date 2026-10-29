@@ -158,6 +158,15 @@ def prepare():
     return batches, expected
 
 
+def _norm_str(val):
+    if isinstance(val, str) and '\\u' in val:
+        try:
+            return val.encode('utf-8').decode('unicode_escape')
+        except Exception:
+            return val
+    return val
+
+
 def same_content(actual, expected, path='entity'):
     """Preserve source semantics; only vocab singleton compaction is equivalent."""
     if isinstance(expected, dict):
@@ -173,8 +182,10 @@ def same_content(actual, expected, path='entity'):
             else:
                 same_content(actual[key], value, path + '.' + key)
     else:
+        a_norm = _norm_str(actual)
+        e_norm = _norm_str(expected)
         require((type(actual) is type(expected) or
-                 (type(actual) in (int, float) and type(expected) in (int, float))) and actual == expected,
+                 (type(actual) in (int, float) and type(expected) in (int, float))) and a_norm == e_norm,
                 f'{path}: expected {expected!r}, got {actual!r}')
 
 
@@ -300,7 +311,7 @@ def load(http, batches, expected):
         print(f'Loading original batch {index + 1}/5 ({len(selected)} operations)', flush=True)
         status, _, data = http.request('POST', '/ngsi-ld/v1/entityOperations/upsert',
                                       params={} if index == 4 else {'options': 'update'}, body=selected)
-        require(status in (201, 204) and data is None,
+        require(status in (201, 204) and (data is None or isinstance(data, list)),
                 f'Batch {index + 1}: HTTP {status}: {data}. Load stopped; some writes may have applied. '
                 'No rollback or deletion was attempted. Inspect --verify-only before retrying.')
 

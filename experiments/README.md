@@ -8,19 +8,20 @@ snapshot, client/model information, native calls, answers and review status.
 
 | Date (UTC) | Native client | Question set | Outcome |
 | --- | --- | --- | --- |
-| 2026-10-29 | Claude Code 2.1.308, claude-opus-5-5 | 16 reference questions | 12 PASS, four PARTIAL; 88 native MCP calls |
-| 2026-10-29 | Codex CLI 0.165.0, requested gpt-6.1-sol | Same 16 questions and instruction text | 16 PASS; 128 native MCP calls |
+| 2026-10-29 | Claude Code 2.1.308, claude-opus-5-5 | 16 reference questions | 12 PASS, 4 PARTIAL; 88 native MCP calls |
+| 2026-10-29 | Codex CLI 0.165.0, gpt-6.1-sol | Same 16 questions and instruction text | 16 PASS; 128 native MCP calls |
+| 2026-10-29 | Hermes Agent v0.21.5, gemini-3.6-flash | Same 16 questions and instruction text | 16 PASS; 131 native MCP calls |
 
 The Claude record is in
 [`smart-farming/2026-10-29-claude-20261029T120603975738Z/`](smart-farming/2026-10-29-claude-20261029T120603975738Z/).
 Its manifest identifies the exact original run, source hashes and limitations.
 The reviewed Codex record is in
 [`smart-farming/2026-10-29-codex-20261029T151154441881Z/`](smart-farming/2026-10-29-codex-20261029T151154441881Z/).
-See the [same-question comparison](smart-farming/2026-10-29-COMPARISON.md).
-Both runs used byte-identical prompts and matching fixture/context hashes. The
-managed-session startup failure remains separate from this successful normal
-terminal execution. The older five-task native Codex run is not substituted.
+The reviewed Hermes Agent record is in
+[`smart-farming/2026-10-29-hermes-20261029T185215948548Z/`](smart-farming/2026-10-29-hermes-20261029T185215948548Z/).
+See the same-question comparison records.
 
+All three runs used byte-identical prompts and matching fixture/context hashes.
 Dataset source revision: `05c6fdd118b731a5c362b0892c9efb00968dc7a4` from
 [fgs2025-talking-with-smart-solution](https://github.com/dncampo/fgs2025-talking-with-smart-solution/tree/05c6fdd118b731a5c362b0892c9efb00968dc7a4).
 The fixed fixture contains 47 Animal, six AgriParcel, four Building and four
@@ -64,7 +65,7 @@ From the repository root:
 ```sh
 python3 evaluation/farm-reference/compare_experiments.py \
   experiments/smart-farming/2026-10-29-claude-20261029T120603975738Z \
-  experiments/smart-farming/2026-10-29-codex-20261029T151154441881Z
+  experiments/smart-farming/2026-10-29-hermes-20261029T185215948548Z
 ```
 
 The comparison refuses different questions/prompts, fixture/context versions or
@@ -72,6 +73,3 @@ MCP source hashes. It reports existing reviewed classifications, call counts and
 question durations. It does not grade prose or promote an unreviewed archive to
 PASS. Use --output with a new path to save the comparison as JSON. A new developer
 can execute a run, export it, review its results, then compare it with a baseline.
-
-See [additional provider plans](EXTENDING.md) for Gemini and local-model testing.
-Those integrations are proposed and have not been executed.

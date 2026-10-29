@@ -51,6 +51,19 @@ def collect_calls(events, record):
                           'framework_status': item.get('status'), 'framework_error': item.get('error'),
                           'result': result})
         return calls
+    if any(e.get('type') == 'tool_use' for e in events):
+        calls = []
+        for call in record['tool_calls']:
+            calls.append({
+                'id': call['id'],
+                'server': call.get('server', 'fiware_farm'),
+                'tool': call['tool'],
+                'arguments': call['arguments'],
+                'framework_status': call.get('status', 'completed'),
+                'framework_error': call.get('error', False),
+                'result': call.get('result')
+            })
+        return calls
     responses = {}
     for event in events:
         if event.get('type') == 'user':
@@ -82,7 +95,8 @@ def main(argv=None):
     selected = json.loads((run / 'questions.json').read_text())
     metadata = json.loads((run / 'run.json').read_text())
     is_codex = metadata.get('native_client') == 'Codex CLI'
-    client = 'codex' if is_codex else 'claude'
+    is_hermes = metadata.get('native_client') == 'Hermes Agent'
+    client = 'hermes' if is_hermes else ('codex' if is_codex else 'claude')
     recorded = re.search(r'(\d{8}T\d{12}Z)', run.name)
     if not recorded:
         parser.error('Run folder must contain its UTC timestamp for a dated archive')
@@ -100,9 +114,9 @@ def main(argv=None):
             actual_hash = hashlib.sha256((run / (identifier + '.events.jsonl')).read_bytes()).hexdigest()
             if reviewed['events_sha256'] != actual_hash:
                 parser.error('Trace changed since review: ' + identifier)
-    if is_codex:
+    if is_codex or is_hermes:
         provenance = {k: metadata[k] for k in ('captured_at_utc', 'platform', 'dependencies', 'mcp', 'dataset', 'questions_sha256')}
-        provenance['capture_note'] = 'Captured before this native Codex run.'
+        provenance['capture_note'] = f'Captured before this native {metadata.get("native_client")} run.'
     else:
         provenance = snapshot(root, python_executable(args.python_path or root / '.venv/bin/python'),
                               root / 'evaluation/farm-reference/questions-only.json')
